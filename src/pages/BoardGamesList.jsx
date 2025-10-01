@@ -1,8 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import BoardGameCard from '../components/BoardGameCard'
+import { GlobalContext } from '../context/GlobalContext'
 
 const BoardGamesList = () => {
-    const [boardGames, setBoardGames] = useState(null); // stato per memorizzare i board games
+    const { boardGames } = useContext(GlobalContext); // prendo i board games dal context
+
     const [query, setQuery] = useState(''); // stato per la barra di ricerca
     const [selectedCategory, setSelectedCategory] = useState(''); // stato per il filtro categoria
     const [sortBy, setSortBy] = useState('title a-z'); // 'title a-z', 'title z-a', 'category a-z', 'category z-a'
@@ -11,17 +13,6 @@ const BoardGamesList = () => {
     const handleSearch = (e) => {
         setQuery(e.target.value);
     };
-
-    // funzione per fetchare i board games dal server
-    const fetchBoardGames = async () => {
-        const response = await fetch('http://localhost:3001/boardgames')
-        const data = await response.json()
-        setBoardGames(data)
-    }
-
-    useEffect(() => {
-        fetchBoardGames()
-    }, [])
 
     // filtro e ordino i board games in base alla query di ricerca, categoria selezionata e criterio di ordinamento
     const filteredAndSortedBoardGames = boardGames?.filter((game) => {

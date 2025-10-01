@@ -1,8 +1,10 @@
-import React, { use, useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { NavLink } from 'react-router-dom';
+import { GlobalContext } from '../context/GlobalContext';
 
 const BoardGameCard = ({ bg }) => {
     const [game, setGame] = useState(null);
+    const { favoriteGames, setFavoriteGames } = useContext(GlobalContext);
 
     useEffect(() => {
         fetch(`http://localhost:3001/boardgames/${bg.id}`)
@@ -12,8 +14,20 @@ const BoardGameCard = ({ bg }) => {
             })
     }, [])
 
+    const toggleFavorite = () => {
+        if (favoriteGames.some(fav => fav.id === game.id)) {
+            setFavoriteGames(favoriteGames.filter(fav => fav.id !== game.id));
+        } else {
+            setFavoriteGames([...favoriteGames, game]);
+        }
+    };
+
+    console.log('ciao');
     return (
         <div className='card' >
+            <div className='favorite-icon' onClick={toggleFavorite}>
+                {favoriteGames.some(fav => fav.id === game?.id) ? '❤️' : '🤍'}
+            </div>
             <NavLink to={`/boardgames/${game?.id}`}>
                 <div className='thumbnail-container'>
                     <img className='thumbnail' src={game?.image} alt={game?.title} />

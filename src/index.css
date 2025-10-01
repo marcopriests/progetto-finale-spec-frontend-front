@@ -36,8 +36,18 @@
 }
 
 .card {
+    position: relative;
     /* background-color: #cacaca; */
     width: 300px;
+}
+
+.favorite-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
 }
 
 .thumbnail-container {
