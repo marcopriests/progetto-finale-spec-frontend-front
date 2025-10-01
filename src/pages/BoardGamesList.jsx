@@ -3,7 +3,7 @@ import BoardGameCard from '../components/BoardGameCard'
 import { GlobalContext } from '../context/GlobalContext'
 
 const BoardGamesList = () => {
-    const { boardGames } = useContext(GlobalContext); // prendo i board games dal context
+    const { boardGames, compare } = useContext(GlobalContext); // prendo i board games dal context
 
     const [query, setQuery] = useState(''); // stato per la barra di ricerca
     const [selectedCategory, setSelectedCategory] = useState(''); // stato per il filtro categoria
@@ -80,6 +80,17 @@ const BoardGamesList = () => {
                     <BoardGameCard key={game.id} bg={game} />
                 ))}
             </div>
+
+            {compare.length > 0 && (
+                <div className='compare-bar'>
+                    <h3>Compare Bar ({compare.length})</h3>
+                    <div className='cards-container'>
+                        {compare.map(game => (
+                            <BoardGameCard key={game.id} bg={game} />
+                        ))}
+                    </div>
+                </div>
+            )}
         </div>
     )
 }

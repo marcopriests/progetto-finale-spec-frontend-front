@@ -5,10 +5,11 @@ const GlobalContext = createContext();
 
 function GlobalProvider({ children }) {
     const [favoriteGames, setFavoriteGames] = useState([]);
+    const [compare, setCompare] = useState([]);
     const boardGameData = useBoardGames();
 
     return (
-        <GlobalContext.Provider value={{ ...boardGameData, favoriteGames, setFavoriteGames }}>
+        <GlobalContext.Provider value={{ ...boardGameData, favoriteGames, setFavoriteGames, compare, setCompare }}>
             {children}
         </GlobalContext.Provider>
     );
