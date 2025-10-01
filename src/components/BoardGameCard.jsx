@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext, useMemo } from 'react'
 import { NavLink } from 'react-router-dom';
 import { GlobalContext } from '../context/GlobalContext';
 
-const BoardGameCard = ({ bg }) => {
+const BoardGameCard = React.memo(({ bg }) => {
     const [game, setGame] = useState(null);
     const { favoriteGames, setFavoriteGames, compare, setCompare } = useContext(GlobalContext);
 
@@ -12,7 +12,7 @@ const BoardGameCard = ({ bg }) => {
             .then(data => {
                 setGame(data.boardgame);
             })
-    }, [])
+    }, []);
 
     const toggleFavorite = () => {
         if (favoriteGames.some(fav => fav.id === game.id)) {
@@ -32,9 +32,7 @@ const BoardGameCard = ({ bg }) => {
         }
     };
 
-    console.log('Lunghezza array compare:', compare.length);
-
-    console.log('ciao');
+    console.log('BoardGameCard rerender'); // Controllo i rerender
     return (
         <div className='card' >
             <div className='favorite-icon' onClick={toggleFavorite}>
@@ -57,6 +55,6 @@ const BoardGameCard = ({ bg }) => {
 
 
     )
-}
+})
 
 export default BoardGameCard

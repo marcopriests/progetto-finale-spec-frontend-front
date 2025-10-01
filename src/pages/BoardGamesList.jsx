@@ -33,6 +33,8 @@ const BoardGamesList = () => {
         return 0;
     });
 
+    console.log('BoardGamesList rerender'); // Controllo i rerender
+
     return (
         <div className='container'>
             <h1>Board Games List Page</h1>
