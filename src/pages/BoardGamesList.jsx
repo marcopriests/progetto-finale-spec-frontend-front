@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import BoardGameCard from '../components/BoardGameCard'
-import { NavLink } from 'react-router-dom';
 
 const BoardGamesList = () => {
     const [boardGames, setBoardGames] = useState(null); // stato per memorizzare i board games
@@ -87,9 +86,7 @@ const BoardGamesList = () => {
 
             <div className='cards-container'>
                 {filteredAndSortedBoardGames && filteredAndSortedBoardGames.map((game) => (
-                    <NavLink className='card' to={`/boardgames/${game.id}`} key={game.id}>
-                        <BoardGameCard bg={game} />
-                    </NavLink>
+                    <BoardGameCard key={game.id} bg={game} />
                 ))}
             </div>
         </div>
