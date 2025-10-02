@@ -17,22 +17,35 @@ const BoardGameDetail = () => {
         <div className='detail-container'>
             {game ? (
                 <>
-                    <div className='detail-image'>
-                        <img src={game.image} alt={game.title} />
-                    </div>
-
-                    <div className='detail-info'>
-                        <h2>{game.vote_average}</h2>
-                        <h2>{game.title}</h2>
-                        <p>{game.released_year}</p>
-                        <p><strong>Category:</strong> {game.category}</p>
-                        <p><strong>Players:</strong> {game.min_players} - {game.max_players}</p>
-                        <p><strong>Playing time:</strong> {game.playtime} min</p>
-                        <p><strong>Age:</strong> {game.min_age}</p>
-                        <p><strong>Designer:</strong> {game.designer}</p>
-                        <p><strong>Artist:</strong> {game.artist}</p>
-
-                        <p>{game.description}</p>
+                    <div className="container">
+                        <div className="detail-game">
+                            <div className="game-info">
+                                <div className="detail-title">
+                                    <div className="detail-vote">{game.vote_average}</div>
+                                    <div>
+                                        <div className="game-title">{game.title} <span className="detail-year">{game.released_year}</span></div>
+                                        <div className="detail-category">{game.category}</div>
+                                    </div>
+                                </div>
+                                <div className="detail-info">
+                                    <div>{game.min_players}-{game.max_players} Players</div>
+                                    <div className="detail-info-separator"></div>
+                                    <div>{game.playtime} Min</div>
+                                    <div className="detail-info-separator"></div>
+                                    <div>Age: {game.min_age}+</div>
+                                </div>
+                                <div><b>Designer: </b>{game.designer}</div>
+                                <div><b>Artist: </b>{game.artist}</div>
+                                <div className="detail-description">
+                                    <h2>Description</h2>
+                                    <div>{game.description}</div>
+                                </div>
+                                <a className='detail-link' href={game.link} target="_blank">Link</a>
+                            </div>
+                            <div className="game-thumbnail">
+                                <img src={game.image} alt={game.title} />
+                            </div>
+                        </div>
                     </div>
                 </>
             ) : (

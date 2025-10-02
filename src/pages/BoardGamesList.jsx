@@ -1,39 +1,48 @@
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect, useContext, useCallback, useMemo } from 'react'
 import BoardGameCard from '../components/BoardGameCard'
 import { GlobalContext } from '../context/GlobalContext'
 import CompareCard from '../components/CompareCard';
+import Comparator from '../components/Comparator';
+
+function debounce(callback, delay) {
+    let timer;
+    return (value) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            callback(value);
+        }, delay)
+    }
+};
 
 const BoardGamesList = () => {
     const { boardGames, compare, setCompare } = useContext(GlobalContext); // prendo i board games dal context
 
     const [query, setQuery] = useState(''); // stato per la barra di ricerca
+    const debouncedSetQuery = useCallback(debounce(setQuery, 500), []); // debounce sulla ricerca
+
     const [selectedCategory, setSelectedCategory] = useState(''); // stato per il filtro categoria
     const [sortBy, setSortBy] = useState('title a-z'); // 'title a-z', 'title z-a', 'category a-z', 'category z-a'
-    const [activeCompare, setActiveCompare] = useState(false);
 
-    // funzione per aggiornare lo stato della query di ricerca
-    const handleSearch = (e) => {
-        setQuery(e.target.value);
-    };
-
-    // filtro e ordino i board games in base alla query di ricerca, categoria selezionata e criterio di ordinamento
-    const filteredAndSortedBoardGames = boardGames?.filter((game) => {
-        return (game.title.toLowerCase().includes(query.toLowerCase())) && (selectedCategory ? game.category === selectedCategory : true)
-    }).sort((a, b) => {
-        if (sortBy === 'title a-z') {
-            return a.title.localeCompare(b.title); // Ordina in ordine alfabetico crescente per titolo
-        }
-        if (sortBy === 'title z-a') {
-            return b.title.localeCompare(a.title); // Ordina in ordine alfabetico decrescente per titolo
-        }
-        if (sortBy === 'category a-z') {
-            return a.category.localeCompare(b.category); // Ordina in ordine alfabetico crescente per categoria
-        }
-        if (sortBy === 'category z-a') {
-            return b.category.localeCompare(a.category); // Ordina in ordine alfabetico decrescente per categoria
-        }
-        return 0;
-    });
+    const filteredAndSortedBoardGames = useMemo(() => {
+        return [...boardGames]
+            .filter(game => game.title.toLowerCase().includes(query.toLowerCase()))
+            .filter(game => selectedCategory ? game.category === selectedCategory : true)
+            .sort((a, b) => {
+                if (sortBy === 'title a-z') {
+                    return a.title.localeCompare(b.title); // Ordina in ordine alfabetico crescente per titolo
+                }
+                if (sortBy === 'title z-a') {
+                    return b.title.localeCompare(a.title); // Ordina in ordine alfabetico decrescente per titolo
+                }
+                if (sortBy === 'category a-z') {
+                    return a.category.localeCompare(b.category); // Ordina in ordine alfabetico crescente per categoria
+                }
+                if (sortBy === 'category z-a') {
+                    return b.category.localeCompare(a.category); // Ordina in ordine alfabetico decrescente per categoria
+                }
+                return 0;
+            })
+    }, [boardGames, sortBy, query, selectedCategory])
 
     console.log('BoardGamesList rerender'); // Controllo i rerender
 
@@ -57,8 +66,7 @@ const BoardGamesList = () => {
                             <input
                                 type='text'
                                 placeholder="Title..."
-                                value={query}
-                                onChange={handleSearch}
+                                onChange={(e) => debouncedSetQuery(e.target.value)}
                             />
                         </div>
                         {/* filtro categoria */}
@@ -91,35 +99,20 @@ const BoardGamesList = () => {
                     </div>
                 </div>
 
-
+                {/* board games list */}
                 <div className='cards-container'>
-                    {filteredAndSortedBoardGames && filteredAndSortedBoardGames.map((game) => (
-                        <BoardGameCard key={game.id} bg={game} />
-                    ))}
+                    {filteredAndSortedBoardGames.length > 0
+                        ? filteredAndSortedBoardGames.map((game) => (
+                            <BoardGameCard key={game.id} bg={game} />
+                        ))
+                        : <p>No boards games found.</p>
+                    }
                 </div>
-
             </div>
+
+            {/* COMPARE-BAR */}
             {compare.length > 0 && (
-                <div className={`compare-bar ${compare.length > 0 ? 'compare-active' : ''}`}>
-                    <div className="container">
-                        <details>
-                            <summary
-                                onClick={() => setActiveCompare(!activeCompare)}
-                                className='compare-title'
-                            >
-                                Comparator ({compare.length})
-                            </summary>
-                            <div>
-                                <div onClick={() => setCompare([])} className='clear-compare'><i className="fa-solid fa-xmark"></i>Clear comparator</div>
-                                <div className='cards-container'>
-                                    {compare.map(game => (
-                                        <CompareCard key={game.id} bg={game} />
-                                    ))}
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-                </div>
+                <Comparator />
             )}
         </>
     )

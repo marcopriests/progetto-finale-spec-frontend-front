@@ -25,10 +25,10 @@ const CompareCard = React.memo(({ bg }) => {
     const toggleCompare = () => {
         if (compare.some(comp => comp.id === game.id)) {
             setCompare(compare.filter(comp => comp.id !== game.id));
-        } else if (compare.length < 2) {
+        } else if (compare.length < 5) {
             setCompare([...compare, game]);
         } else {
-            alert('You can only compare up to 2 games at a time.');
+            alert('You can only compare up to 5 games at a time.');
         }
     };
 

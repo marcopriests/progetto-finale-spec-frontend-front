@@ -4,7 +4,7 @@ import { GlobalContext } from '../context/GlobalContext';
 
 const BoardGameCard = React.memo(({ bg }) => {
     const [game, setGame] = useState(null);
-    const { favoriteGames, setFavoriteGames, compare, setCompare } = useContext(GlobalContext);
+    const { favoriteGames, changeFavorites, compare, setCompare } = useContext(GlobalContext);
 
     useEffect(() => {
         fetch(`http://localhost:3001/boardgames/${bg.id}`)
@@ -16,19 +16,19 @@ const BoardGameCard = React.memo(({ bg }) => {
 
     const toggleFavorite = () => {
         if (favoriteGames.some(fav => fav.id === game.id)) {
-            setFavoriteGames(favoriteGames.filter(fav => fav.id !== game.id));
+            changeFavorites(favoriteGames.filter(fav => fav.id !== game.id));
         } else {
-            setFavoriteGames([...favoriteGames, game]);
+            changeFavorites([...favoriteGames, game]);
         }
     };
 
     const toggleCompare = () => {
         if (compare.some(comp => comp.id === game.id)) {
             setCompare(compare.filter(comp => comp.id !== game.id));
-        } else if (compare.length < 2) {
+        } else if (compare.length < 5) {
             setCompare([...compare, game]);
         } else {
-            alert('You can only compare up to 2 games at a time.');
+            alert('You can only compare up to 5 games at a time.');
         }
     };
 

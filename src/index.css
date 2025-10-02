@@ -104,23 +104,16 @@
     margin: 10px 0 30px 0;
 }
 
-/* .cards-container {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-} */
-
 .cards-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, 250px);
     justify-content: space-between;
     transition: bottom 0.3s ease-in-out;
+    margin-bottom: 200px;
 }
 
 .card {
     position: relative;
-    /* background-color: #cacaca; */
     width: 250px;
     margin-bottom: 20px;
 }
@@ -232,6 +225,13 @@
     margin-right: 5px;
 }
 
+.compare-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 150px);
+    justify-content: space-between;
+    transition: bottom 0.3s ease-in-out;
+}
+
 .compare-card {
     position: relative;
     /* background-color: #cacaca; */
@@ -244,4 +244,86 @@
     height: 150px;
     margin-bottom: 15px;
     overflow: hidden;
+}
+
+/* -------------------------------------------------Details page */
+.detail-game {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 20px;
+}
+
+.game-info {
+    width: 60%;
+    padding-right: 50px;
+}
+
+.detail-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.detail-vote {
+    height: 80px;
+    aspect-ratio: cos(30deg);
+    clip-path: polygon(-50% 50%, 50% 100%, 150% 50%, 50% 0);
+    background: #ff7700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 900;
+    font-size: 1.5rem;
+    margin-right: 20px;
+}
+
+.detail-title .game-title {
+    font-size: 2rem;
+    font-weight: 900;
+    margin-right: 10px;
+}
+
+.detail-year {
+    font-weight: 600;
+}
+
+.detail-category {
+    text-transform: uppercase;
+    color: #666;
+}
+
+.detail-info {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.detail-info-separator {
+    height: 50px;
+    width: 1px;
+    background-color: #ff7700;
+}
+
+.detail-description {
+    margin: 30px 0;
+}
+
+.detail-link {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ff7700;
+    text-decoration: none;
+}
+
+.game-thumbnail {
+    width: 40%;
+}
+
+.game-thumbnail img {
+    width: 100%;
 }
