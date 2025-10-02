@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import useBoardGames from "../components/hooks/useBoardGames";
+import useBoardGames from "../hooks/useBoardGames";
 
 const GlobalContext = createContext();
 

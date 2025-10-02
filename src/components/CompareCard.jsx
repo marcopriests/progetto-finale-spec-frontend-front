@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useContext, useMemo } from 'react'
-import { NavLink } from 'react-router-dom';
+import React, { useState, useEffect, useContext } from 'react'
 import { GlobalContext } from '../context/GlobalContext';
+import { NavLink } from 'react-router-dom';
 
-const BoardGameCard = React.memo(({ bg }) => {
+const CompareCard = React.memo(({ bg }) => {
     const [game, setGame] = useState(null);
     const { favoriteGames, setFavoriteGames, compare, setCompare } = useContext(GlobalContext);
 
@@ -34,13 +34,13 @@ const BoardGameCard = React.memo(({ bg }) => {
 
     console.log('BoardGameCard rerender'); // Controllo i rerender
     return (
-        <div className='card' >
+        <div className='compare-card' >
             <div className='favorite-icon' onClick={toggleFavorite}>
                 {favoriteGames.some(fav => fav.id === game?.id) ? <i className="fa-solid fa-heart"></i> : <i className="fa-regular fa-heart"></i>}
             </div>
 
             <NavLink to={`/boardgames/${game?.id}`}>
-                <div className='thumbnail-container'>
+                <div className='compare-thumbnail-container'>
                     <img className='thumbnail' src={game?.image} alt={game?.title} />
                 </div>
             </NavLink>
@@ -64,4 +64,4 @@ const BoardGameCard = React.memo(({ bg }) => {
     )
 })
 
-export default BoardGameCard
+export default CompareCard
