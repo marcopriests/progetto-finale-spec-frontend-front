@@ -23,7 +23,7 @@ const BoardGameDetail = () => {
                                 <div className="detail-title">
                                     <div className="detail-vote">{game.vote_average}</div>
                                     <div>
-                                        <div className="game-title">{game.title} <span className="detail-year">{game.released_year}</span></div>
+                                        <div className="game-title">{game.title} <span className="detail-year">({game.released_year})</span></div>
                                         <div className="detail-category">{game.category}</div>
                                     </div>
                                 </div>

@@ -3,8 +3,8 @@ import { NavLink } from 'react-router-dom';
 import { GlobalContext } from '../context/GlobalContext';
 
 const BoardGameCard = React.memo(({ bg }) => {
-    const [game, setGame] = useState(null);
     const { favoriteGames, changeFavorites, compare, setCompare } = useContext(GlobalContext);
+    const [game, setGame] = useState(null);
 
     useEffect(() => {
         fetch(`http://localhost:3001/boardgames/${bg.id}`)

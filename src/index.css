@@ -38,12 +38,37 @@
     font-family: "Climate Crisis", sans-serif;
 }
 
-.navbar .link {
-    color: #272727;
+.dropdown {
+    position: relative;
+    color: #171717;
     font-size: 1.2rem;
     font-weight: 900;
     margin-right: 20px;
     text-decoration: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.navbar .link:hover {
+    color: #ff7700;
 }
 
 .header {
@@ -104,6 +129,10 @@
     margin: 10px 0 30px 0;
 }
 
+.category-filter option {
+    text-transform: capitalize;
+}
+
 .cards-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, 250px);
@@ -151,6 +180,7 @@
 }
 
 .game-title {
+    text-transform: capitalize;
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 5px;
@@ -286,6 +316,7 @@
 
 .detail-year {
     font-weight: 600;
+    font-size: 1.2rem;
 }
 
 .detail-category {
@@ -326,4 +357,35 @@
 
 .game-thumbnail img {
     width: 100%;
+}
+
+/* --------------------------------FORM */
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 50px 0;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.form-field {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.btn {
+    padding: 0 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
 }

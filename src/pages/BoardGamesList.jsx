@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext, useCallback, useMemo } from 'react'
+import { useState, useContext, useCallback, useMemo } from 'react'
 import BoardGameCard from '../components/BoardGameCard'
 import { GlobalContext } from '../context/GlobalContext'
 import CompareCard from '../components/CompareCard';
@@ -75,13 +75,14 @@ const BoardGamesList = () => {
                             <select value={selectedCategory} onChange={e => setSelectedCategory(e.target.value)}>
                                 <option value=''>All categories</option>
                                 {
-                                    boardGames && boardGames.filter((game, index, self) =>
-                                        index === self.findIndex((g) => (
-                                            g.category === game.category
+                                    boardGames && boardGames
+                                        .filter((game, index, self) =>
+                                            index === self.findIndex((g) => (
+                                                g.category === game.category
+                                            )))
+                                        .sort((a, b) => a.category.localeCompare(b.category)).map(game => (
+                                            <option key={game.id} value={game.category}>{game.category}</option>
                                         ))
-                                    ).sort((a, b) => a.category.localeCompare(b.category)).map(game => (
-                                        <option key={game.id} value={game.category}>{game.category}</option>
-                                    ))
                                 }
                             </select>
                         </div>
