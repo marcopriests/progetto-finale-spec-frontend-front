@@ -25,8 +25,13 @@
     color: #171717;
 }
 
+.navbar a {
+    text-decoration: none;
+}
+
 .navbar .logo {
     margin-right: 20px;
+    color: #171717;
     font-size: 2rem;
     font-weight: 900;
     width: 350px;

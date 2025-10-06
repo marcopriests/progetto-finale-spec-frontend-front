@@ -2,23 +2,23 @@ import React, { useState, useEffect, useContext } from 'react'
 import { NavLink } from 'react-router-dom';
 import { GlobalContext } from '../context/GlobalContext';
 
-const BoardGameCard = React.memo(({ bg }) => {
-    const { favoriteBoardGames, changeFavoritesBG, compare, setCompare } = useContext(GlobalContext);
+const VideoGameCard = React.memo(({ vg }) => {
+    const { favoriteVideoGames, changeFavoritesVG, compare, setCompare } = useContext(GlobalContext);
     const [game, setGame] = useState(null);
 
     useEffect(() => {
-        fetch(`http://localhost:3001/boardgames/${bg.id}`)
+        fetch(`http://localhost:3001/videogames/${vg.id}`)
             .then(response => response.json())
             .then(data => {
-                setGame(data.boardgame);
+                setGame(data.videogame);
             })
     }, []);
 
     const toggleFavorite = () => {
-        if (favoriteBoardGames.some(fav => fav.id === game.id)) {
-            changeFavoritesBG(favoriteBoardGames.filter(fav => fav.id !== game.id));
+        if (favoriteVideoGames.some(fav => fav.id === game.id)) {
+            changeFavoritesVG(favoriteVideoGames.filter(fav => fav.id !== game.id));
         } else {
-            changeFavoritesBG([...favoriteBoardGames, game]);
+            changeFavoritesVG([...favoriteVideoGames, game]);
         }
     };
 
@@ -36,18 +36,18 @@ const BoardGameCard = React.memo(({ bg }) => {
     return (
         <div className='card' >
             <div className='favorite-icon' onClick={toggleFavorite}>
-                {favoriteBoardGames.some(fav => fav.id === game?.id) ? <i className="fa-solid fa-heart"></i> : <i className="fa-regular fa-heart"></i>}
+                {favoriteVideoGames.some(fav => fav.id === game?.id) ? <i className="fa-solid fa-heart"></i> : <i className="fa-regular fa-heart"></i>}
             </div>
 
-            <NavLink to={`/boardgames/${game?.id}`}>
+            <NavLink to={`/videogames/${game?.id}`}>
                 <div className='thumbnail-container'>
                     <img className='thumbnail' src={game?.image} alt={game?.title} />
                 </div>
             </NavLink>
             <div className='game-title'>{game?.title || 'titolo'}</div>
             <div className='game-category'>{game?.category || 'categoria'}</div>
-            <div className='game-players'><strong>Players:</strong> {game?.min_players} - {game?.max_players}</div>
-            <div className='game-duration'><strong>Playtime:</strong> {game?.playtime || 'N/A'}min</div>
+            <div className='game-players'><strong>Publisher:</strong> {game?.publisher}</div>
+            <div className='game-duration'><strong>Game Studio:</strong> {game?.game_studio || 'N/A'}</div>
             <div className='game-vote'><strong>Vote:</strong> {game?.vote_average || 'N/A'}</div>
             <div className='compare-button' onClick={toggleCompare}>
                 {compare.some(comp => comp.id === game?.id)
@@ -64,4 +64,4 @@ const BoardGameCard = React.memo(({ bg }) => {
     )
 })
 
-export default BoardGameCard
+export default VideoGameCard

@@ -1,7 +1,6 @@
 import { useState, useContext, useCallback, useMemo } from 'react'
 import BoardGameCard from '../components/BoardGameCard'
 import { GlobalContext } from '../context/GlobalContext'
-import CompareCard from '../components/CompareCard';
 import Comparator from '../components/Comparator';
 
 function debounce(callback, delay) {

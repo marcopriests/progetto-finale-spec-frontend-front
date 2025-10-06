@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 const CompareCard = React.memo(({ bg }) => {
     const [game, setGame] = useState(null);
-    const { favoriteGames, setFavoriteGames, compare, setCompare } = useContext(GlobalContext);
+    const { compare, setCompare } = useContext(GlobalContext);
 
     useEffect(() => {
         fetch(`http://localhost:3001/boardgames/${bg.id}`)
@@ -13,14 +13,6 @@ const CompareCard = React.memo(({ bg }) => {
                 setGame(data.boardgame);
             })
     }, []);
-
-    const toggleFavorite = () => {
-        if (favoriteGames.some(fav => fav.id === game.id)) {
-            setFavoriteGames(favoriteGames.filter(fav => fav.id !== game.id));
-        } else {
-            setFavoriteGames([...favoriteGames, game]);
-        }
-    };
 
     const toggleCompare = () => {
         if (compare.some(comp => comp.id === game.id)) {
@@ -35,10 +27,6 @@ const CompareCard = React.memo(({ bg }) => {
     console.log('BoardGameCard rerender'); // Controllo i rerender
     return (
         <div className='compare-card' >
-            <div className='favorite-icon' onClick={toggleFavorite}>
-                {favoriteGames.some(fav => fav.id === game?.id) ? <i className="fa-solid fa-heart"></i> : <i className="fa-regular fa-heart"></i>}
-            </div>
-
             <NavLink to={`/boardgames/${game?.id}`}>
                 <div className='compare-thumbnail-container'>
                     <img className='thumbnail' src={game?.image} alt={game?.title} />

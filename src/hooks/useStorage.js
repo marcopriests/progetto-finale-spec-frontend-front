@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function useStorage(itemKey, initialValue) {
-    const [favoriteGames, setFavoriteGames] = useState(() => {
+    const [favoriteBoardGames, setFavoriteBoardGames] = useState(() => {
         const prevState = localStorage.getItem(itemKey);
         if (prevState) {
             return JSON.parse(prevState);
@@ -11,10 +11,25 @@ export default function useStorage(itemKey, initialValue) {
         }
     });
 
-    const changeFavorites = newState => {
-        setFavoriteGames(newState);
+    const changeFavoritesBG = newState => {
+        setFavoriteBoardGames(newState);
         localStorage.setItem(itemKey, JSON.stringify(newState));
     }
 
-    return [favoriteGames, changeFavorites]
+    const [favoriteVideoGames, setFavoriteVideoGames] = useState(() => {
+        const prevState = localStorage.getItem(itemKey);
+        if (prevState) {
+            return JSON.parse(prevState);
+        } else {
+            localStorage.setItem(itemKey, JSON.stringify(initialValue));
+            return initialValue
+        }
+    });
+
+    const changeFavoritesVG = newState => {
+        setFavoriteVideoGames(newState);
+        localStorage.setItem(itemKey, JSON.stringify(newState));
+    }
+
+    return [favoriteBoardGames, changeFavoritesBG, favoriteVideoGames, changeFavoritesVG]
 }

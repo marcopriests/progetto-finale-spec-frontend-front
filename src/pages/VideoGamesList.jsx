@@ -1,7 +1,7 @@
-import React, { useState, useCallback, useMemo, useContext } from 'react'
-import { GlobalContext } from '../context/GlobalContext';
-import BoardGameCard from '../components/BoardGameCard';
+import { useState, useContext, useCallback, useMemo } from 'react'
+import { GlobalContext } from '../context/GlobalContext'
 import Comparator from '../components/Comparator';
+import VideoGameCard from '../components/VideoGameCard';
 
 function debounce(callback, delay) {
     let timer;
@@ -13,16 +13,17 @@ function debounce(callback, delay) {
     }
 };
 
-const BoardGameFavorite = () => {
-    const { favoriteBoardGames, compare } = useContext(GlobalContext);
+const VideoGamesList = () => {
+    const { videoGames, compare, setCompare } = useContext(GlobalContext); // prendo i board games dal context
+
     const [query, setQuery] = useState(''); // stato per la barra di ricerca
     const debouncedSetQuery = useCallback(debounce(setQuery, 500), []); // debounce sulla ricerca
 
     const [selectedCategory, setSelectedCategory] = useState(''); // stato per il filtro categoria
     const [sortBy, setSortBy] = useState('title a-z'); // 'title a-z', 'title z-a', 'category a-z', 'category z-a'
 
-    const filteredAndSortedBoardGames = useMemo(() => {
-        return [...favoriteBoardGames]
+    const filteredAndSortedVideoGames = useMemo(() => {
+        return [...videoGames]
             .filter(game => game.title.toLowerCase().includes(query.toLowerCase()))
             .filter(game => selectedCategory ? game.category === selectedCategory : true)
             .sort((a, b) => {
@@ -40,16 +41,19 @@ const BoardGameFavorite = () => {
                 }
                 return 0;
             })
-    }, [favoriteBoardGames, sortBy, query, selectedCategory])
+    }, [videoGames, sortBy, query, selectedCategory])
 
+    console.log('VideoGamesList rerender'); // Controllo i rerender
     return (
         <>
             <div className='header'>
                 <div className="container">
-                    <h1>Favorite Board Games</h1>
+                    <h1>Video Games</h1>
                 </div>
             </div>
+
             <div className='container'>
+
                 {/* Barra di ricerca e filtro categoria */}
                 <div className='filters-container'>
                     {/* searchbar */}
@@ -69,13 +73,14 @@ const BoardGameFavorite = () => {
                             <select value={selectedCategory} onChange={e => setSelectedCategory(e.target.value)}>
                                 <option value=''>All categories</option>
                                 {
-                                    favoriteBoardGames && favoriteBoardGames.filter((game, index, self) =>
-                                        index === self.findIndex((g) => (
-                                            g.category === game.category
+                                    videoGames && videoGames
+                                        .filter((game, index, self) =>
+                                            index === self.findIndex((g) => (
+                                                g.category === game.category
+                                            )))
+                                        .sort((a, b) => a.category.localeCompare(b.category)).map(game => (
+                                            <option key={game.id} value={game.category}>{game.category}</option>
                                         ))
-                                    ).sort((a, b) => a.category.localeCompare(b.category)).map(game => (
-                                        <option key={game.id} value={game.category}>{game.category}</option>
-                                    ))
                                 }
                             </select>
                         </div>
@@ -93,14 +98,14 @@ const BoardGameFavorite = () => {
                     </div>
                 </div>
 
+                {/* video games list */}
                 <div className='cards-container'>
-                    {favoriteBoardGames.length > 0 ? (
-                        favoriteBoardGames.map(game => (
-                            <BoardGameCard bg={game} key={game.id} />
+                    {filteredAndSortedVideoGames.length > 0
+                        ? filteredAndSortedVideoGames.map((game) => (
+                            <VideoGameCard key={game.id} vg={game} />
                         ))
-                    ) : (
-                        <p>No favorite games found.</p>
-                    )}
+                        : <p>No video games found.</p>
+                    }
                 </div>
             </div>
 
@@ -112,4 +117,4 @@ const BoardGameFavorite = () => {
     )
 }
 
-export default BoardGameFavorite
+export default VideoGamesList
