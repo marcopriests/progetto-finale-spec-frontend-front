@@ -29,32 +29,32 @@ export default function useBoardGames() {
         dispatchBoardGames({ type: 'ADD_BOARDGAME', payload: boardgame });
     }
 
-    // const removeTask = async taskId => {
-    //     const response = await fetch(`${VITE_API_URL}/tasks/${taskId}`, {
-    //         method: 'DELETE'
-    //     });
-    //     const { success, message } = await response.json();
-    //     if (!success) throw new Error(message);
+    const removeBoardGame = async boardGameId => {
+        const response = await fetch(`http://localhost:3001/boardgames/${boardGameId}`, {
+            method: 'DELETE'
+        });
+        const { success, message } = await response.json();
+        if (!success) throw new Error(message);
 
-    //     dispatchTasks({ type: 'REMOVE_TASK', payload: taskId });
-    // }
+        dispatchBoardGames({ type: 'REMOVE_BOARDGAME', payload: boardGameId });
+    }
 
-    // const updateTask = async updatedTask => {
-    //     const taskWithSameTitle = tasks.find(t => t.title.toLowerCase() === updatedTask.title.toLowerCase());
-    //     if (taskWithSameTitle && taskWithSameTitle.id !== updatedTask.id) {
-    //         throw new Error('Esiste già una task con questo nome');
-    //     }
-    //     const response = await fetch(`${VITE_API_URL}/tasks/${updatedTask.id}`, {
-    //         method: 'PUT',
-    //         headers: { 'Content-Type': 'application/json' },
-    //         body: JSON.stringify(updatedTask)
+    const updateBoardGame = async updatedBoardGame => {
+        const boardGameWithSameTitle = boardGames.find(t => t.title.toLowerCase() === updatedBoardGame.title.toLowerCase());
+        if (boardGameWithSameTitle && boardGameWithSameTitle.id !== updatedBoardGame.id) {
+            throw new Error('Esiste già un gioco con questo nome');
+        }
+        const response = await fetch(`http://localhost:3001/boardgames/${updatedBoardGame.id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(updatedBoardGame)
 
-    //     });
-    //     const { success, message, task } = await response.json();
-    //     if (!success) throw new Error(message);
+        });
+        const { success, message, boardgame } = await response.json();
+        if (!success) throw new Error(message);
 
-    //     dispatchTasks({ type: 'UPDATE_TASK', payload: task })
-    // }
+        dispatchBoardGames({ type: 'UPDATE_BOARDGAME', payload: boardgame })
+    }
 
-    return { boardGames, addBoardGame };
+    return { boardGames, addBoardGame, updateBoardGame, removeBoardGame };
 };

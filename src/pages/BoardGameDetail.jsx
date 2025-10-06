@@ -1,17 +1,51 @@
-import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useState, useEffect, useContext, useCallback } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
+import Modal from '../components/Modal';
+import EditBoardGameModal from '../components/EditBoardGameModal';
+import { GlobalContext } from '../context/GlobalContext';
 
 const BoardGameDetail = () => {
+    const { updateBoardGame, removeBoardGame } = useContext(GlobalContext);
+
     const [game, setGame] = useState(null);
+    const [showEditModal, setShowEditModal] = useState(false);
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
     const id = useParams().id;
 
-    useEffect(() => {
+    const fetchGame = () => {
         fetch(`http://localhost:3001/boardgames/${id}`)
             .then(response => response.json())
             .then(data => {
                 setGame(data.boardgame);
             })
+    }
+
+    useEffect(() => {
+        fetchGame()
     }, [])
+
+    console.log('render')
+
+    const handleUpdate = async updatedBoardGame => {
+        try {
+            await updateBoardGame(updatedBoardGame)
+            fetchGame()
+            setShowEditModal(false)
+        } catch (error) {
+            alert(error.message)
+        }
+    }
+
+    const handleDelete = async () => {
+        try {
+            await removeBoardGame(game.id);
+            alert('Board Game deleted with success!');
+            navigate('/boardgames');
+        } catch (error) {
+            console.error(error);
+            alert(error.message);
+        }
+    };
 
     return (
         <div className='detail-container'>
@@ -23,7 +57,13 @@ const BoardGameDetail = () => {
                                 <div className="detail-title">
                                     <div className="detail-vote">{game.vote_average}</div>
                                     <div>
-                                        <div className="game-title">{game.title} <span className="detail-year">({game.released_year})</span></div>
+                                        <div className="game-title">{game.title}
+                                            <span className="detail-year">
+                                                ({game.released_year})
+                                            </span>
+                                            <button onClick={() => setShowEditModal(true)}><i className='fa-solid fa-edit'></i></button>
+                                            <button onClick={() => setShowDeleteModal(true)}><i className='fa-solid fa-trash'></i></button>
+                                        </div>
                                         <div className="detail-category">{game.category}</div>
                                     </div>
                                 </div>
@@ -47,6 +87,22 @@ const BoardGameDetail = () => {
                             </div>
                         </div>
                     </div>
+
+                    <EditBoardGameModal
+                        boardgame={game}
+                        show={showEditModal}
+                        onClose={() => setShowEditModal(false)}
+                        onSave={handleUpdate}
+
+                    />
+
+                    <Modal
+                        title="Confirm delete"
+                        content={<p>"Are you sure you want to delete this game?"</p>}
+                        show={showDeleteModal}
+                        onClose={() => setShowDeleteModal(false)}
+                        onConfirm={handleDelete}
+                    />
                 </>
             ) : (
                 <p>Loading...</p>

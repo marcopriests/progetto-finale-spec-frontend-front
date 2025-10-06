@@ -101,7 +101,6 @@ const AddBoardGame = () => {
                             className="form-field"
                             type="text"
                             ref={categoryRef}
-                            required
                         />
                     </label>
 
@@ -111,7 +110,6 @@ const AddBoardGame = () => {
                             className="form-field"
                             type="number"
                             ref={yearRef}
-                            required
                         />
                     </label>
 
@@ -121,7 +119,6 @@ const AddBoardGame = () => {
                             className="form-field"
                             type="text"
                             ref={designerRef}
-                            required
                         />
                     </label>
 
@@ -131,7 +128,6 @@ const AddBoardGame = () => {
                             className="form-field"
                             type="text"
                             ref={artistRef}
-                            required
                         />
                     </label>
 
@@ -141,7 +137,6 @@ const AddBoardGame = () => {
                             className="form-field"
                             type="number"
                             ref={voteRef}
-                            required
                         />
                     </label>
 
@@ -150,7 +145,6 @@ const AddBoardGame = () => {
                         <textarea
                             className='form-field'
                             ref={descriptionRef}
-                            required
                         />
                     </label>
 
@@ -160,7 +154,6 @@ const AddBoardGame = () => {
                             className="form-field"
                             type="number"
                             ref={minPlayersRef}
-                            required
                         />
                     </label>
 
@@ -170,7 +163,6 @@ const AddBoardGame = () => {
                             className="form-field"
                             type="number"
                             ref={maxPlayersRef}
-                            required
                         />
                     </label>
 
@@ -180,7 +172,6 @@ const AddBoardGame = () => {
                             className="form-field"
                             type="number"
                             ref={playtimeRef}
-                            required
                         />
                     </label>
 
@@ -190,7 +181,6 @@ const AddBoardGame = () => {
                             className="form-field"
                             type="number"
                             ref={minAgeRef}
-                            required
                         />
                     </label>
 
@@ -200,7 +190,6 @@ const AddBoardGame = () => {
                             className="form-field"
                             type="text"
                             ref={imageRef}
-                            required
                         />
                     </label>
 
@@ -210,7 +199,6 @@ const AddBoardGame = () => {
                             className="form-field"
                             type="string"
                             ref={linkRef}
-                            required
                         />
                     </label>
 
