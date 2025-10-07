@@ -1,12 +1,18 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import BoardGamesList from "./pages/boardGamesList"
-import BoardGameDetail from "./pages/BoardGameDetail"
-import DefaultLayout from "./layout/DefaultLayout"
-import { GlobalProvider } from "./context/GlobalContext"
-import BoardGameFavorite from "./pages/BoardGameFavorite"
-import AddBoardGame from "./pages/AddBoardGame"
-import Homepage from "./pages/Homepage"
-import VideoGamesList from "./pages/VideoGamesList"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import DefaultLayout from "./layout/DefaultLayout";
+import { GlobalProvider } from "./context/GlobalContext";
+
+import Homepage from "./pages/Homepage";
+
+import BoardGamesList from "./pages/BoardGamesList";
+import BoardGameDetail from "./pages/BoardGameDetail";
+import BoardGameFavorite from "./pages/BoardGameFavorite";
+import AddBoardGame from "./pages/AddBoardGame";
+
+import VideoGamesList from "./pages/VideoGamesList";
+import VideoGameDetail from "./pages/VideoGameDetail";
+import VideoGameFavorite from "./pages/VideoGameFavorite";
+import AddVideoGame from "./pages/AddVideoGame";
 
 function App() {
 
@@ -25,9 +31,9 @@ function App() {
             <Route path="/boardgames/favorites" Component={BoardGameFavorite} />
 
             <Route path="/videogames" Component={VideoGamesList} />
-            <Route path="/videogames/:id" Component={BoardGameDetail} />
-            <Route path="/videogames/add" Component={AddBoardGame} />
-            <Route path="/videogames/favorites" Component={BoardGameFavorite} />
+            <Route path="/videogames/:id" Component={VideoGameDetail} />
+            <Route path="/videogames/add" Component={AddVideoGame} />
+            <Route path="/videogames/favorites" Component={VideoGameFavorite} />
           </Route>
 
         </Routes>

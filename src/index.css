@@ -202,14 +202,17 @@
     margin-bottom: 10px;
 }
 
-.game-players {
+.game-players,
+.game-duration,
+.game-publisher,
+.game-studio {
     font-size: 1rem;
     margin-bottom: 5px;
 }
 
-.game-duration {
-    font-size: 1rem;
-    margin-bottom: 5px;
+.game-publisher,
+.game-studio {
+    text-transform: capitalize;
 }
 
 .game-vote {

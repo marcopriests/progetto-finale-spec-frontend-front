@@ -31,8 +31,6 @@ const VideoGameCard = React.memo(({ vg }) => {
             alert('You can only compare up to 5 games at a time.');
         }
     };
-
-    console.log('BoardGameCard rerender'); // Controllo i rerender
     return (
         <div className='card' >
             <div className='favorite-icon' onClick={toggleFavorite}>
@@ -46,8 +44,8 @@ const VideoGameCard = React.memo(({ vg }) => {
             </NavLink>
             <div className='game-title'>{game?.title || 'titolo'}</div>
             <div className='game-category'>{game?.category || 'categoria'}</div>
-            <div className='game-players'><strong>Publisher:</strong> {game?.publisher}</div>
-            <div className='game-duration'><strong>Game Studio:</strong> {game?.game_studio || 'N/A'}</div>
+            <div className='game-publisher'><strong>Publisher:</strong> {game?.publisher}</div>
+            <div className='game-studio'><strong>Game Studio:</strong> {game?.game_studio || 'N/A'}</div>
             <div className='game-vote'><strong>Vote:</strong> {game?.vote_average || 'N/A'}</div>
             <div className='compare-button' onClick={toggleCompare}>
                 {compare.some(comp => comp.id === game?.id)

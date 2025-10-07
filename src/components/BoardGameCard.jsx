@@ -31,8 +31,6 @@ const BoardGameCard = React.memo(({ bg }) => {
             alert('You can only compare up to 5 games at a time.');
         }
     };
-
-    console.log('BoardGameCard rerender'); // Controllo i rerender
     return (
         <div className='card' >
             <div className='favorite-icon' onClick={toggleFavorite}>

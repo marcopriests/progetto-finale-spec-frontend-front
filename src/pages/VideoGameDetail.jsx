@@ -1,11 +1,11 @@
 import { useState, useEffect, useContext } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import Modal from '../components/Modal';
-import EditBoardGameModal from '../components/EditBoardGameModal';
+import EditVideoGameModal from '../components/EditVideoGameModal';
 import { GlobalContext } from '../context/GlobalContext';
 
-const BoardGameDetail = () => {
-    const { updateBoardGame, removeBoardGame } = useContext(GlobalContext);
+const VideoGameDetail = () => {
+    const { updateVideoGame, removeVideoGame } = useContext(GlobalContext);
 
     const [game, setGame] = useState(null);
     const [showEditModal, setShowEditModal] = useState(false);
@@ -14,10 +14,10 @@ const BoardGameDetail = () => {
     const navigate = useNavigate();
 
     const fetchGame = () => {
-        fetch(`http://localhost:3001/boardgames/${id}`)
+        fetch(`http://localhost:3001/videogames/${id}`)
             .then(response => response.json())
             .then(data => {
-                setGame(data.boardgame);
+                setGame(data.videogame);
             })
     }
 
@@ -25,21 +25,23 @@ const BoardGameDetail = () => {
         fetchGame();
     }, [])
 
-    const handleUpdate = async updatedBoardGame => {
+    const handleUpdate = async updatedVideoGame => {
         try {
-            await updateBoardGame(updatedBoardGame)
+            await updateVideoGame(updatedVideoGame);
             fetchGame()
             setShowEditModal(false)
         } catch (error) {
             alert(error.message)
+        } finally {
+            alert('Video Game edited with success!');
         }
     }
 
     const handleDelete = async () => {
         try {
-            await removeBoardGame(game.id);
-            alert('Board Game deleted with success!');
-            navigate('/boardgames');
+            await removeVideoGame(game.id);
+            alert('Video Game deleted with success!');
+            navigate('/videogames');
         } catch (error) {
             console.error(error);
             alert(error.message);
@@ -65,15 +67,9 @@ const BoardGameDetail = () => {
                                         <div className="detail-category">{game.category}</div>
                                     </div>
                                 </div>
-                                <div className="detail-info">
-                                    <div>{game.min_players}-{game.max_players} Players</div>
-                                    <div className="detail-info-separator"></div>
-                                    <div>{game.playtime} Min</div>
-                                    <div className="detail-info-separator"></div>
-                                    <div>Age: {game.min_age}+</div>
-                                </div>
-                                <div><b>Designer: </b>{game.designer}</div>
-                                <div><b>Artist: </b>{game.artist}</div>
+
+                                <div><b>Publisher: </b>{game.publisher}</div>
+                                <div><b>Game studio: </b>{game.game_studio}</div>
                                 <div className="detail-description">
                                     <h2>Description</h2>
                                     <div>{game.description}</div>
@@ -86,8 +82,8 @@ const BoardGameDetail = () => {
                         </div>
                     </div>
 
-                    <EditBoardGameModal
-                        boardgame={game}
+                    <EditVideoGameModal
+                        videogame={game}
                         show={showEditModal}
                         onClose={() => setShowEditModal(false)}
                         onSave={handleUpdate}
@@ -109,4 +105,4 @@ const BoardGameDetail = () => {
     )
 }
 
-export default BoardGameDetail
+export default VideoGameDetail

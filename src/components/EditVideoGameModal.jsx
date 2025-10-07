@@ -1,33 +1,43 @@
 import { useState, useRef } from 'react'
 import Modal from './Modal'
 
-const EditBoardGameModal = ({ show, onClose, boardgame, onSave }) => {
-    const [editedBoardGame, setEditedBoardGame] = useState(boardgame);
+const EditVideoGameModal = ({ show, onClose, videogame, onSave }) => {
+    const [editedVideoGame, setEditedVideoGame] = useState(videogame);
     const editFormRef = useRef();
 
-    const changeEditedBoardGame = (key, event) => {
-        setEditedBoardGame(prev => ({ ...prev, [key]: event.target.value }));
+    const changeEditedVideoGame = (key, event) => {
+        setEditedVideoGame(prev => {
+            if (key === 'released_year') {
+                return { ...prev, [key]: parseInt(event.target.value) }
+            }
+
+            if (key === 'vote_average') {
+                return { ...prev, [key]: parseFloat(event.target.value) }
+            }
+
+            return { ...prev, [key]: event.target.value }
+        });
     }
 
     const handleSubmit = e => {
         e.preventDefault();
-        onSave(editedBoardGame);
+        onSave(editedVideoGame);
     };
 
-    const { title, category, released_year, designer, artist, vote_average, description, min_players, max_players, playtime, min_age, image, link, owner } = editedBoardGame;
+    const { title, category, released_year, publisher, game_studio, vote_average, description, image, link, owner } = editedVideoGame;
     return (
         <Modal
-            title='Edit Board Game'
+            title='Edit Video Game'
             content={
                 <div className='container d-flex'>
                     <form ref={editFormRef} onSubmit={handleSubmit}>
                         <label>
-                            Board Game Title:
+                            Video Game Title:
                             <input
                                 className="form-field"
                                 type="text"
                                 value={title}
-                                onChange={(e) => changeEditedBoardGame('title', e)}
+                                onChange={(e) => changeEditedVideoGame('title', e)}
                             />
                         </label>
 
@@ -37,7 +47,7 @@ const EditBoardGameModal = ({ show, onClose, boardgame, onSave }) => {
                                 className="form-field"
                                 type="text"
                                 value={category}
-                                onChange={(e) => changeEditedBoardGame('category', e)}
+                                onChange={(e) => changeEditedVideoGame('category', e)}
                             />
                         </label>
 
@@ -47,27 +57,27 @@ const EditBoardGameModal = ({ show, onClose, boardgame, onSave }) => {
                                 className="form-field"
                                 type="number"
                                 value={released_year}
-                                onChange={(e) => changeEditedBoardGame('released_year', e)}
+                                onChange={(e) => changeEditedVideoGame('released_year', e)}
                             />
                         </label>
 
                         <label>
-                            Designer:
+                            Publisher:
                             <input
                                 className="form-field"
                                 type="text"
-                                value={designer}
-                                onChange={(e) => changeEditedBoardGame('designer', e)}
+                                value={publisher}
+                                onChange={(e) => changeEditedVideoGame('publisher', e)}
                             />
                         </label>
 
                         <label>
-                            Artist:
+                            Game studio:
                             <input
                                 className="form-field"
                                 type="text"
-                                value={artist}
-                                onChange={(e) => changeEditedBoardGame('artist', e)}
+                                value={game_studio}
+                                onChange={(e) => changeEditedVideoGame('game_studio', e)}
                             />
                         </label>
 
@@ -77,7 +87,7 @@ const EditBoardGameModal = ({ show, onClose, boardgame, onSave }) => {
                                 className="form-field"
                                 type="number"
                                 value={vote_average}
-                                onChange={(e) => changeEditedBoardGame('vote_average', e)}
+                                onChange={(e) => changeEditedVideoGame('vote_average', e)}
                             />
                         </label>
 
@@ -86,47 +96,7 @@ const EditBoardGameModal = ({ show, onClose, boardgame, onSave }) => {
                             <textarea
                                 className='form-field'
                                 value={description}
-                                onChange={(e) => changeEditedBoardGame('description', e)}
-                            />
-                        </label>
-
-                        <label>
-                            Min Players:
-                            <input
-                                className="form-field"
-                                type="number"
-                                value={min_players}
-                                onChange={(e) => changeEditedBoardGame('min_players', e)}
-                            />
-                        </label>
-
-                        <label>
-                            Max Players:
-                            <input
-                                className="form-field"
-                                type="number"
-                                value={max_players}
-                                onChange={(e) => changeEditedBoardGame('max_players', e)}
-                            />
-                        </label>
-
-                        <label>
-                            Playtime:
-                            <input
-                                className="form-field"
-                                type="number"
-                                value={playtime}
-                                onChange={(e) => changeEditedBoardGame('playtime', e)}
-                            />
-                        </label>
-
-                        <label>
-                            Min Age:
-                            <input
-                                className="form-field"
-                                type="number"
-                                value={min_age}
-                                onChange={(e) => changeEditedBoardGame('min_age', e)}
+                                onChange={(e) => changeEditedVideoGame('description', e)}
                             />
                         </label>
 
@@ -136,7 +106,7 @@ const EditBoardGameModal = ({ show, onClose, boardgame, onSave }) => {
                                 className="form-field"
                                 type="text"
                                 value={image}
-                                onChange={(e) => changeEditedBoardGame('image', e)}
+                                onChange={(e) => changeEditedVideoGame('image', e)}
                             />
                         </label>
 
@@ -146,7 +116,7 @@ const EditBoardGameModal = ({ show, onClose, boardgame, onSave }) => {
                                 className="form-field"
                                 type="string"
                                 value={link}
-                                onChange={(e) => changeEditedBoardGame('link', e)}
+                                onChange={(e) => changeEditedVideoGame('link', e)}
                             />
                         </label>
 
@@ -156,7 +126,7 @@ const EditBoardGameModal = ({ show, onClose, boardgame, onSave }) => {
                                 className="form-field"
                                 type="string"
                                 value={owner}
-                                onChange={(e) => changeEditedBoardGame('owner', e)}
+                                onChange={(e) => changeEditedVideoGame('owner', e)}
                             />
                         </label>
                     </form>
@@ -170,4 +140,4 @@ const EditBoardGameModal = ({ show, onClose, boardgame, onSave }) => {
     )
 }
 
-export default EditBoardGameModal
+export default EditVideoGameModal

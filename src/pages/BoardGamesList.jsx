@@ -2,16 +2,7 @@ import { useState, useContext, useCallback, useMemo } from 'react'
 import BoardGameCard from '../components/BoardGameCard'
 import { GlobalContext } from '../context/GlobalContext'
 import Comparator from '../components/Comparator';
-
-function debounce(callback, delay) {
-    let timer;
-    return (value) => {
-        clearTimeout(timer);
-        timer = setTimeout(() => {
-            callback(value);
-        }, delay)
-    }
-};
+import debounce from '../functions/debounce';
 
 const BoardGamesList = () => {
     const { boardGames, compare, setCompare } = useContext(GlobalContext); // prendo i board games dal context
@@ -42,9 +33,6 @@ const BoardGamesList = () => {
                 return 0;
             })
     }, [boardGames, sortBy, query, selectedCategory])
-
-    console.log('BoardGamesList rerender'); // Controllo i rerender
-
     return (
         <>
             <div className='header'>

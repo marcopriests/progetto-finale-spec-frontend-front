@@ -2,16 +2,7 @@ import { useState, useContext, useCallback, useMemo } from 'react'
 import { GlobalContext } from '../context/GlobalContext'
 import Comparator from '../components/Comparator';
 import VideoGameCard from '../components/VideoGameCard';
-
-function debounce(callback, delay) {
-    let timer;
-    return (value) => {
-        clearTimeout(timer);
-        timer = setTimeout(() => {
-            callback(value);
-        }, delay)
-    }
-};
+import debounce from '../functions/debounce';
 
 const VideoGamesList = () => {
     const { videoGames, compare, setCompare } = useContext(GlobalContext); // prendo i board games dal context
@@ -25,7 +16,7 @@ const VideoGamesList = () => {
     const filteredAndSortedVideoGames = useMemo(() => {
         return [...videoGames]
             .filter(game => game.title.toLowerCase().includes(query.toLowerCase()))
-            .filter(game => selectedCategory ? game.category === selectedCategory : true)
+            .filter(game => selectedCategory ? game.category.toLowerCase() === selectedCategory.toLowerCase() : true)
             .sort((a, b) => {
                 if (sortBy === 'title a-z') {
                     return a.title.localeCompare(b.title); // Ordina in ordine alfabetico crescente per titolo
@@ -42,8 +33,6 @@ const VideoGamesList = () => {
                 return 0;
             })
     }, [videoGames, sortBy, query, selectedCategory])
-
-    console.log('VideoGamesList rerender'); // Controllo i rerender
     return (
         <>
             <div className='header'>
@@ -76,9 +65,10 @@ const VideoGamesList = () => {
                                     videoGames && videoGames
                                         .filter((game, index, self) =>
                                             index === self.findIndex((g) => (
-                                                g.category === game.category
+                                                g.category.toLowerCase() === game.category.toLowerCase()
                                             )))
-                                        .sort((a, b) => a.category.localeCompare(b.category)).map(game => (
+                                        .sort((a, b) => a.category.localeCompare(b.category))
+                                        .map(game => (
                                             <option key={game.id} value={game.category}>{game.category}</option>
                                         ))
                                 }

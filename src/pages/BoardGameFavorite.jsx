@@ -2,19 +2,12 @@ import React, { useState, useCallback, useMemo, useContext } from 'react'
 import { GlobalContext } from '../context/GlobalContext';
 import BoardGameCard from '../components/BoardGameCard';
 import Comparator from '../components/Comparator';
-
-function debounce(callback, delay) {
-    let timer;
-    return (value) => {
-        clearTimeout(timer);
-        timer = setTimeout(() => {
-            callback(value);
-        }, delay)
-    }
-};
+import debounce from '../functions/debounce';
 
 const BoardGameFavorite = () => {
     const { favoriteBoardGames, compare } = useContext(GlobalContext);
+
+    // barra di filtraggio
     const [query, setQuery] = useState(''); // stato per la barra di ricerca
     const debouncedSetQuery = useCallback(debounce(setQuery, 500), []); // debounce sulla ricerca
 
@@ -41,7 +34,6 @@ const BoardGameFavorite = () => {
                 return 0;
             })
     }, [favoriteBoardGames, sortBy, query, selectedCategory])
-
     return (
         <>
             <div className='header'>
@@ -95,7 +87,7 @@ const BoardGameFavorite = () => {
 
                 <div className='cards-container'>
                     {favoriteBoardGames.length > 0 ? (
-                        favoriteBoardGames.map(game => (
+                        filteredAndSortedBoardGames.map(game => (
                             <BoardGameCard bg={game} key={game.id} />
                         ))
                     ) : (
