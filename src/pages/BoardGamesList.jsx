@@ -13,10 +13,10 @@ const BoardGamesList = () => {
     const [selectedCategory, setSelectedCategory] = useState(''); // stato per il filtro categoria
     const [sortBy, setSortBy] = useState('title a-z'); // 'title a-z', 'title z-a', 'category a-z', 'category z-a'
 
-    const filteredAndSortedBoardGames = useMemo(() => {
+    const items = useMemo(() => {
         return [...boardGames]
-            .filter(game => game.title.toLowerCase().includes(query.toLowerCase()))
-            .filter(game => selectedCategory ? game.category === selectedCategory : true)
+            .filter(item => item.title.toLowerCase().includes(query.toLowerCase()))
+            .filter(item => selectedCategory ? item.category === selectedCategory : true)
             .sort((a, b) => {
                 if (sortBy === 'title a-z') {
                     return a.title.localeCompare(b.title); // Ordina in ordine alfabetico crescente per titolo
@@ -32,7 +32,7 @@ const BoardGamesList = () => {
                 }
                 return 0;
             })
-    }, [boardGames, sortBy, query, selectedCategory])
+    }, [boardGames, sortBy, query, selectedCategory]);
     return (
         <>
             <div className='header'>
@@ -56,6 +56,7 @@ const BoardGamesList = () => {
                                 onChange={(e) => debouncedSetQuery(e.target.value)}
                             />
                         </div>
+
                         {/* filtro categoria */}
                         <div className='category-filter'>
                             <label className='filter-label'>Filter by category</label>
@@ -63,20 +64,20 @@ const BoardGamesList = () => {
                                 <option value=''>All categories</option>
                                 {
                                     boardGames && boardGames
-                                        .filter((game, index, self) =>
-                                            index === self.findIndex((g) => (
-                                                g.category === game.category
+                                        .filter((item, index, self) =>
+                                            index === self.findIndex((i) => (
+                                                i.category === item.category
                                             )))
-                                        .sort((a, b) => a.category.localeCompare(b.category)).map(game => (
-                                            <option key={game.id} value={game.category}>{game.category}</option>
+                                        .sort((a, b) => a.category.localeCompare(b.category)).map(item => (
+                                            <option key={item.id} value={item.category}>{item.category}</option>
                                         ))
                                 }
                             </select>
                         </div>
                     </div>
+
                     {/* sorting */}
                     <div className='sorting'>
-
                         <label className='filter-label'>Sort by</label>
                         <select value={sortBy} onChange={e => setSortBy(e.target.value)}>
                             <option value='title a-z'>Title, A-Z</option>
@@ -89,8 +90,8 @@ const BoardGamesList = () => {
 
                 {/* board games list */}
                 <div className='cards-container'>
-                    {filteredAndSortedBoardGames.length > 0
-                        ? filteredAndSortedBoardGames.map((game) => (
+                    {items.length > 0
+                        ? items.map((game) => (
                             <BoardGameCard key={game.id} bg={game} />
                         ))
                         : <p>No boards games found.</p>

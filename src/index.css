@@ -460,3 +460,8 @@ label {
 .btn-primary:hover {
     background-color: #171717;
 }
+
+.homepage-title {
+    font-size: 2rem;
+    margin-bottom: 50px;
+}

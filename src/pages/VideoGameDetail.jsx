@@ -5,7 +5,7 @@ import EditVideoGameModal from '../components/EditVideoGameModal';
 import { GlobalContext } from '../context/GlobalContext';
 
 const VideoGameDetail = () => {
-    const { updateVideoGame, removeVideoGame } = useContext(GlobalContext);
+    const { favoriteVideoGames, changeFavoritesVG, updateVideoGame, removeVideoGame } = useContext(GlobalContext);
 
     const [game, setGame] = useState(null);
     const [showEditModal, setShowEditModal] = useState(false);
@@ -40,6 +40,7 @@ const VideoGameDetail = () => {
     const handleDelete = async () => {
         try {
             await removeVideoGame(game.id);
+            changeFavoritesVG(favoriteVideoGames.filter(fav => fav.id !== game.id));
             alert('Video Game deleted with success!');
             navigate('/videogames');
         } catch (error) {

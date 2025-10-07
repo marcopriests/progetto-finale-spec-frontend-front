@@ -5,7 +5,7 @@ import EditBoardGameModal from '../components/EditBoardGameModal';
 import { GlobalContext } from '../context/GlobalContext';
 
 const BoardGameDetail = () => {
-    const { updateBoardGame, removeBoardGame } = useContext(GlobalContext);
+    const { favoriteBoardGames, changeFavoritesBG, updateBoardGame, removeBoardGame } = useContext(GlobalContext);
 
     const [game, setGame] = useState(null);
     const [showEditModal, setShowEditModal] = useState(false);
@@ -38,6 +38,7 @@ const BoardGameDetail = () => {
     const handleDelete = async () => {
         try {
             await removeBoardGame(game.id);
+            changeFavoritesBG(favoriteBoardGames.filter(fav => fav.id !== game.id));
             alert('Board Game deleted with success!');
             navigate('/boardgames');
         } catch (error) {
