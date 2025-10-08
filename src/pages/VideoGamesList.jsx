@@ -1,4 +1,4 @@
-import { useState, useContext, useCallback, useMemo } from 'react'
+import { useState, useContext, useCallback, useMemo, useEffect } from 'react'
 import { GlobalContext } from '../context/GlobalContext'
 import Comparator from '../components/Comparator';
 import VideoGameCard from '../components/VideoGameCard';
@@ -6,6 +6,11 @@ import debounce from '../functions/debounce';
 
 const VideoGamesList = () => {
     const { videoGames, compare, setCompare } = useContext(GlobalContext); // prendo i board games dal context
+
+    // resetto il comparatore
+    useEffect(() => {
+        setCompare([]);
+    }, []);
 
     const [query, setQuery] = useState(''); // stato per la barra di ricerca
     const debouncedSetQuery = useCallback(debounce(setQuery, 500), []); // debounce sulla ricerca

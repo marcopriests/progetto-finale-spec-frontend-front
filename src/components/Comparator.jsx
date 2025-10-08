@@ -1,9 +1,11 @@
 import React, { useContext } from 'react'
 import { GlobalContext } from '../context/GlobalContext'
 import CompareCard from './CompareCard'
+import { useLocation } from 'react-router-dom'
 
 const Comparator = () => {
     const { compare, setCompare } = useContext(GlobalContext)
+    const location = useLocation();
     return (
         <div className={`compare-bar ${compare.length > 0 ? 'compare-active' : ''}`}>
             <div className="container">
@@ -17,7 +19,7 @@ const Comparator = () => {
                         <div onClick={() => setCompare([])} className='clear-compare'><i className="fa-solid fa-xmark"></i>Clear comparator</div>
                         <div className='compare-container'>
                             {compare.map(game => (
-                                <CompareCard key={game.id} bg={game} />
+                                <CompareCard key={game.id} location={location} item={game} />
                             ))}
                         </div>
                     </div>

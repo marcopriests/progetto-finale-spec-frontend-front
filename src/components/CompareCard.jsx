@@ -2,15 +2,30 @@ import React, { useState, useEffect, useContext } from 'react'
 import { GlobalContext } from '../context/GlobalContext';
 import { NavLink } from 'react-router-dom';
 
-const CompareCard = React.memo(({ bg }) => {
+const CompareCard = React.memo(({ location, item }) => {
     const [game, setGame] = useState(null);
+    const [isBoardgame, setIsBoardgame] = useState(false);
+    const [isVideogame, setIsVideogame] = useState(false);
     const { compare, setCompare } = useContext(GlobalContext);
 
     useEffect(() => {
-        fetch(`http://localhost:3001/boardgames/${bg.id}`)
+        fetch(`http://localhost:3001${location.pathname}/${item.id}`)
             .then(response => response.json())
             .then(data => {
-                setGame(data.boardgame);
+                setGame(
+                    () => {
+                        if (location.pathname === '/boardgames') {
+                            setIsBoardgame(true);
+                            setIsVideogame(false);
+                            return data.boardgame
+                        }
+                        if (location.pathname === '/videogames') {
+                            setIsVideogame(true);
+                            setIsBoardgame(false);
+                            return data.videogame
+                        }
+                    }
+                );
             })
     }, []);
 
@@ -23,19 +38,30 @@ const CompareCard = React.memo(({ bg }) => {
             alert('You can only compare up to 5 games at a time.');
         }
     };
-
-    console.log('BoardGameCard rerender'); // Controllo i rerender
     return (
         <div className='compare-card' >
-            <NavLink to={`/boardgames/${game?.id}`}>
+            <NavLink to={`${location.pathname}/${game?.id}`}>
                 <div className='compare-thumbnail-container'>
                     <img className='thumbnail' src={game?.image} alt={game?.title} />
                 </div>
             </NavLink>
             <div className='game-title'>{game?.title || 'titolo'}</div>
             <div className='game-category'>{game?.category || 'categoria'}</div>
-            <div className='game-players'><strong>Players:</strong> {game?.min_players} - {game?.max_players}</div>
-            <div className='game-duration'><strong>Playtime:</strong> {game?.playtime || 'N/A'}min</div>
+
+            {isBoardgame &&
+                <>
+                    <div className='game-players'><strong>Players:</strong> {game?.min_players} - {game?.max_players}</div>
+                    <div className='game-playtime'><strong>Playtime:</strong> {game?.playtime || 'N/A'}min</div>
+                </>
+            }
+
+            {isVideogame &&
+                <>
+                    <div className='game-publisher'><strong>Publisher:</strong> {game?.publisher}</div>
+                    <div className='game-studio'><strong>Game studio:</strong> {game?.game_studio}</div>
+                </>
+            }
+
             <div className='game-vote'><strong>Voto:</strong> {game?.vote_average || 'N/A'}</div>
             <div className='compare-button' onClick={toggleCompare}>
                 {compare.some(comp => comp.id === game?.id)
