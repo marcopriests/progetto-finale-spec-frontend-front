@@ -2,224 +2,320 @@ import React, { useState, useContext, useMemo, useRef } from 'react'
 import { GlobalContext } from '../context/GlobalContext';
 
 const AddBoardGame = () => {
-    const { addBoardGame } = useContext(GlobalContext);
+    const [selectedType, setSelectedType] = useState('')
+    const { addBoardGame, addVideoGame } = useContext(GlobalContext);
 
-    const [boardGame, setBoardGame] = useState('');
+    // definisco due stati booleani che cambiano solo al variare di selectedType per definire se voglio aggiungere un boardgame oppure un videogame
+    const isBoardgame = useMemo(() => selectedType === 'boardgame', [selectedType]);
+    const isVideogame = useMemo(() => selectedType === 'videogame', [selectedType]);
+
+    // campi comuni
+    const [game, setGame] = useState('');
     const categoryRef = useRef();
     const yearRef = useRef();
-    const designerRef = useRef();
-    const artistRef = useRef();
     const voteRef = useRef();
     const descriptionRef = useRef();
-    const minPlayersRef = useRef();
-    const maxPlayersRef = useRef();
-    const playtimeRef = useRef();
-    const minAgeRef = useRef();
     const imageRef = useRef();
     const linkRef = useRef();
     const ownerRef = useRef();
 
-    const boardGameError = useMemo(() => {
-        if (!boardGame.trim()) return "The title can't be empty.";
-        return '';
-    }, [boardGame]);
+    // campi boardgame
+    const designerRef = useRef();
+    const artistRef = useRef();
+    const minPlayersRef = useRef();
+    const maxPlayersRef = useRef();
+    const playtimeRef = useRef();
+    const minAgeRef = useRef();
 
+    // campi video game    
+    const publisherRef = useRef();
+    const gameStudioRef = useRef();
+
+    // controllo per evitare che il titolo rimanga vuoto
+    const gameError = useMemo(() => {
+        if (!game.trim()) return "The title can't be empty.";
+        return '';
+    }, [game]);
+
+    // funzione che avviene al submit del form
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (boardGameError)
+
+        // se il title è vuoto ritorno un errore
+        if (gameError)
             return;
 
-        const designer = designerRef.current.value.trim().split(', ');
-        const artist = artistRef.current.value.trim().split(', ');
+        const designer = isBoardgame && designerRef.current.value.trim().split(', ');
+        const artist = isBoardgame && artistRef.current.value.trim().split(', ');
 
-        const newBoardGame = {
-            title: boardGame.trim().toLowerCase(),
-            category: categoryRef.current.value.trim().toLowerCase(),
-            released_year: parseInt(yearRef.current.value),
-            designer: designer,
-            artist: artist,
-            vote_average: parseFloat(voteRef.current.value),
-            description: descriptionRef.current.value.trim(),
-            min_players: parseInt(minPlayersRef.current.value),
-            max_players: parseInt(maxPlayersRef.current.value),
-            playtime: parseInt(playtimeRef.current.value),
-            min_age: parseInt(minAgeRef.current.value),
-            image: imageRef.current.value.trim(),
-            link: linkRef.current.value.trim(),
-            id: 20,
-            createdAt: "2024-10-05T12:00:00.000Z",
-            updatedAt: "2024-10-05T12:00:00.000Z",
-            owner: ownerRef.current.value.trim(),
+        // creo l'oggetto newGame da aggiungere al db
+        const gameObject = () => {
+            if (isBoardgame) {
+                return {
+                    id: 0,
+                    createdAt: "",
+                    updatedAt: "",
+                    title: game.trim().toLowerCase(),
+                    category: categoryRef.current.value.trim().toLowerCase(),
+                    released_year: parseInt(yearRef.current.value),
+                    vote_average: parseFloat(voteRef.current.value),
+                    description: descriptionRef.current.value.trim(),
+                    image: imageRef.current.value.trim(),
+                    link: linkRef.current.value.trim(),
+                    owner: ownerRef.current.value.trim(),
+                    designer: designer,
+                    artist: artist,
+                    min_players: parseInt(minPlayersRef.current.value),
+                    max_players: parseInt(maxPlayersRef.current.value),
+                    playtime: parseInt(playtimeRef.current.value),
+                    min_age: parseInt(minAgeRef.current.value)
+                }
+            }
+            if (isVideogame) {
+                return {
+                    id: 0,
+                    createdAt: "",
+                    updatedAt: "",
+                    title: game.trim().toLowerCase(),
+                    category: categoryRef.current.value.trim().toLowerCase(),
+                    released_year: parseInt(yearRef.current.value),
+                    vote_average: parseFloat(voteRef.current.value),
+                    description: descriptionRef.current.value.trim(),
+                    image: imageRef.current.value.trim(),
+                    link: linkRef.current.value.trim(),
+                    owner: ownerRef.current.value.trim(),
+                    publisher: publisherRef.current.value.trim(),
+                    game_studio: gameStudioRef.current.value.trim(),
+                }
+            }
         };
 
+        const newGame = gameObject();
+
         try {
-            await addBoardGame(newBoardGame);
-            alert('Board Game added with success!');
-            setBoardGame('');
+            // aggiungo il newGame al db a seconda se selectedType è uguale a boardgame oppure videogame
+            if (isBoardgame) {
+                await addBoardGame(newGame);
+            }
+
+            if (isVideogame) {
+                await addVideoGame(newGame);
+            }
+
+            alert('Game added with success!');
+
+            // resetto tutti i campi
+            setGame('');
             categoryRef.current.value = '';
             yearRef.current.value = '';
-            designerRef.current.value = '';
-            artistRef.current.value = '';
             voteRef.current.value = '';
             descriptionRef.current.value = '';
-            minPlayersRef.current.value = '';
-            maxPlayersRef.current.value = '';
-            playtimeRef.current.value = '';
-            minAgeRef.current.value = '';
             imageRef.current.value = '';
             linkRef.current.value = '';
             ownerRef.current.value = '';
+            if (isBoardgame) {
+                designerRef.current.value = '';
+                artistRef.current.value = '';
+                minPlayersRef.current.value = '';
+                maxPlayersRef.current.value = '';
+                playtimeRef.current.value = '';
+                minAgeRef.current.value = '';
+            }
+
+            if (isVideogame) {
+                publisherRef.current.value = '';
+                gameStudioRef.current.value = '';
+            }
         } catch (error) {
-            alert('Error occurs during the submit', error.message);
+            // catturo eventuali errori e li inserisco in un alert
+            alert(error.message);
         }
     }
 
     return (
         <>
             <div className="container">
-                <h1>Add new Board Game</h1>
-                <form>
+                <h1 className='form-title'>Add New Game</h1>
+                <label>
+                    Select Game Type:
+                    <select className='form-field type-select' value={selectedType} onChange={e => setSelectedType(e.target.value)}>
+                        <option value=''>Select type</option>
+                        <option value='boardgame'>Board game</option>
+                        <option value='videogame'>Video game</option>
+                    </select>
+                </label>
 
-                    <div>
+                {selectedType &&
+                    <form>
+                        <div>
+                            <label>
+                                Game Title:
+                                <input
+                                    className="form-field"
+                                    type="text"
+                                    value={game}
+                                    onChange={(e) => setGame(e.target.value)}
+                                />
+                            </label>
+                            {gameError &&
+                                <p style={{ color: 'red' }}>{gameError}</p>
+                            }
+                        </div>
+
                         <label>
-                            Board Game Title:
+                            Category:
                             <input
                                 className="form-field"
                                 type="text"
-                                value={boardGame}
-                                onChange={(e) => setBoardGame(e.target.value)}
+                                ref={categoryRef}
                             />
                         </label>
-                        {boardGameError &&
-                            <p style={{ color: 'red' }}>{boardGameError}</p>
+
+                        <label>
+                            Released Year:
+                            <input
+                                className="form-field"
+                                type="number"
+                                ref={yearRef}
+                            />
+                        </label>
+
+                        {/* Campi visibili solo se si vuole aggiungere un board game */}
+                        {isBoardgame &&
+                            <>
+                                <label>
+                                    Designer:
+                                    <input
+                                        className="form-field"
+                                        type="text"
+                                        ref={designerRef}
+                                    />
+                                </label>
+
+                                <label>
+                                    Artist:
+                                    <input
+                                        className="form-field"
+                                        type="text"
+                                        ref={artistRef}
+                                    />
+                                </label>
+
+                                <label>
+                                    Min Players:
+                                    <input
+                                        className="form-field"
+                                        type="number"
+                                        ref={minPlayersRef}
+                                    />
+                                </label>
+
+                                <label>
+                                    Max Players:
+                                    <input
+                                        className="form-field"
+                                        type="number"
+                                        ref={maxPlayersRef}
+                                    />
+                                </label>
+
+                                <label>
+                                    Playtime:
+                                    <input
+                                        className="form-field"
+                                        type="number"
+                                        ref={playtimeRef}
+                                    />
+                                </label>
+
+                                <label>
+                                    Min Age:
+                                    <input
+                                        className="form-field"
+                                        type="number"
+                                        ref={minAgeRef}
+                                    />
+                                </label>
+                            </>
                         }
-                    </div>
 
-                    <label>
-                        Category:
-                        <input
-                            className="form-field"
-                            type="text"
-                            ref={categoryRef}
-                        />
-                    </label>
+                        {/* Campi visibili solo se si vuole aggiungere un video game */}
+                        {isVideogame &&
+                            <>
+                                <label>
+                                    Publisher:
+                                    <input
+                                        className="form-field"
+                                        type="text"
+                                        ref={publisherRef}
+                                    />
+                                </label>
 
-                    <label>
-                        Released Year:
-                        <input
-                            className="form-field"
-                            type="number"
-                            ref={yearRef}
-                        />
-                    </label>
+                                <label>
+                                    Game studio:
+                                    <input
+                                        className="form-field"
+                                        type="text"
+                                        ref={gameStudioRef}
+                                    />
+                                </label>
+                            </>
+                        }
 
-                    <label>
-                        Designer:
-                        <input
-                            className="form-field"
-                            type="text"
-                            ref={designerRef}
-                        />
-                    </label>
+                        <label>
+                            Average Vote:
+                            <input
+                                className="form-field"
+                                type="number"
+                                ref={voteRef}
+                            />
+                        </label>
 
-                    <label>
-                        Artist:
-                        <input
-                            className="form-field"
-                            type="text"
-                            ref={artistRef}
-                        />
-                    </label>
+                        <label>
+                            Description:
+                            <textarea
+                                className='form-field'
+                                ref={descriptionRef}
+                            />
+                        </label>
 
-                    <label>
-                        Average Vote:
-                        <input
-                            className="form-field"
-                            type="number"
-                            ref={voteRef}
-                        />
-                    </label>
+                        <label>
+                            Image URL:
+                            <input
+                                className="form-field"
+                                type="text"
+                                ref={imageRef}
+                            />
+                        </label>
 
-                    <label>
-                        Description:
-                        <textarea
-                            className='form-field'
-                            ref={descriptionRef}
-                        />
-                    </label>
+                        <label>
+                            External Link:
+                            <input
+                                className="form-field"
+                                type="string"
+                                ref={linkRef}
+                            />
+                        </label>
 
-                    <label>
-                        Min Players:
-                        <input
-                            className="form-field"
-                            type="number"
-                            ref={minPlayersRef}
-                        />
-                    </label>
+                        <label>
+                            Owner:
+                            <input
+                                className="form-field"
+                                type="string"
+                                ref={ownerRef}
+                            />
+                        </label>
 
-                    <label>
-                        Max Players:
-                        <input
-                            className="form-field"
-                            type="number"
-                            ref={maxPlayersRef}
-                        />
-                    </label>
+                        <button
+                            className="btn"
+                            type="submit"
+                            disabled={gameError}
+                            onClick={handleSubmit}>
+                            Add Game
+                        </button>
 
-                    <label>
-                        Playtime:
-                        <input
-                            className="form-field"
-                            type="number"
-                            ref={playtimeRef}
-                        />
-                    </label>
-
-                    <label>
-                        Min Age:
-                        <input
-                            className="form-field"
-                            type="number"
-                            ref={minAgeRef}
-                        />
-                    </label>
-
-                    <label>
-                        Image URL:
-                        <input
-                            className="form-field"
-                            type="text"
-                            ref={imageRef}
-                        />
-                    </label>
-
-                    <label>
-                        External Link:
-                        <input
-                            className="form-field"
-                            type="string"
-                            ref={linkRef}
-                        />
-                    </label>
-
-                    <label>
-                        Owner:
-                        <input
-                            className="form-field"
-                            type="string"
-                            ref={ownerRef}
-                        />
-                    </label>
-
-                    <button
-                        className="btn"
-                        type="submit"
-                        disabled={boardGameError}
-                        onClick={handleSubmit}>
-                        Add Board Game
-                    </button>
-
-                </form>
+                    </form>
+                }
             </div>
         </>
     )

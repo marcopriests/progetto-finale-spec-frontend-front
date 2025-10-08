@@ -27,13 +27,14 @@ function App() {
 
             <Route path="/boardgames" Component={BoardGamesList} />
             <Route path="/boardgames/:id" Component={BoardGameDetail} />
-            <Route path="/boardgames/add" Component={AddBoardGame} />
             <Route path="/boardgames/favorites" Component={BoardGameFavorite} />
 
             <Route path="/videogames" Component={VideoGamesList} />
             <Route path="/videogames/:id" Component={VideoGameDetail} />
-            <Route path="/videogames/add" Component={AddVideoGame} />
             <Route path="/videogames/favorites" Component={VideoGameFavorite} />
+
+
+            <Route path="/add" Component={AddBoardGame} />
           </Route>
 
         </Routes>

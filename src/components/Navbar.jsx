@@ -10,7 +10,6 @@ function Navbar() {
                     <div className="dropdown-content">
                         <NavLink className='link' to='/boardgames'>Board Games List</NavLink>
                         <NavLink className='link' to='boardgames/favorites'>Favorite Board Games</NavLink>
-                        <NavLink className='link' to='boardgames/add'>Add New Board Game</NavLink>
                     </div>
                 </div>
 
@@ -18,9 +17,10 @@ function Navbar() {
                     <div className="dropdown-content">
                         <NavLink className='link' to='/videogames'>Video Games List</NavLink>
                         <NavLink className='link' to='videogames/favorites'>Favorite Video Games</NavLink>
-                        <NavLink className='link' to='videogames/add'>Add New Video Game</NavLink>
                     </div>
                 </div>
+
+                <NavLink className='link add' to='/add'><i className="fa-solid fa-add"></i> Add New Game</NavLink>
             </div>
         </>
     )
