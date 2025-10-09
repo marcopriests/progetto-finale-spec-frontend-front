@@ -5,7 +5,8 @@ import VideoGameCard from '../components/VideoGameCard';
 import debounce from '../functions/debounce';
 
 const VideoGamesList = () => {
-    const { videoGames, compare, setCompare } = useContext(GlobalContext); // prendo i board games dal context
+    // recupero le funzioni dal context
+    const { videoGames, compare, setCompare } = useContext(GlobalContext);
 
     // resetto il comparatore
     useEffect(() => {

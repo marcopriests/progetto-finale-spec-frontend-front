@@ -3,25 +3,37 @@ import { GlobalContext } from '../context/GlobalContext';
 import { NavLink } from 'react-router-dom';
 
 const CompareCard = React.memo(({ location, item }) => {
+    // dichiaro uno stato in cui salverò il gioco
     const [game, setGame] = useState(null);
-    const [isBoardgame, setIsBoardgame] = useState(false);
-    const [isVideogame, setIsVideogame] = useState(false);
+
+    // recupero le funzioni dal context
     const { compare, setCompare } = useContext(GlobalContext);
 
+    // creo una funzione per definire il path per il fetch
+    const getPath = () => {
+        if (location.pathname === '/boardgames' || location.pathname === '/boardgames/favorites') {
+            return 'boardgames'
+        } else if (location.pathname === '/videogames' || location.pathname === '/videogames/favorites') {
+            return 'videogames'
+        }
+    };
+
+    // assegno il risultato della funzione ad una variabile
+    const path = getPath();
+
+    // effettuo la chiamata al montaggio del componente
     useEffect(() => {
-        fetch(`http://localhost:3001${location.pathname}/${item.id}`)
+        fetch(`http://localhost:3001/${path}/${item.id}`)
             .then(response => response.json())
             .then(data => {
                 setGame(
                     () => {
-                        if (location.pathname === '/boardgames') {
-                            setIsBoardgame(true);
-                            setIsVideogame(false);
+                        // se mi trovo in boardgame 
+                        if (path === 'boardgames') {
                             return data.boardgame
                         }
-                        if (location.pathname === '/videogames') {
-                            setIsVideogame(true);
-                            setIsBoardgame(false);
+                        // se mi trovo in videogame
+                        if (path === 'videogames') {
                             return data.videogame
                         }
                     }
@@ -29,6 +41,7 @@ const CompareCard = React.memo(({ location, item }) => {
             })
     }, []);
 
+    // funzione per aggiungere/rimuovere dal comparatore
     const toggleCompare = () => {
         if (compare.some(comp => comp.id === game.id)) {
             setCompare(compare.filter(comp => comp.id !== game.id));
@@ -40,7 +53,7 @@ const CompareCard = React.memo(({ location, item }) => {
     };
     return (
         <div className='compare-card' >
-            <NavLink to={`${location.pathname}/${game?.id}`}>
+            <NavLink to={`/${path}/${game?.id}`}>
                 <div className='compare-thumbnail-container'>
                     <img className='thumbnail' src={game?.image} alt={game?.title} />
                 </div>
@@ -48,14 +61,14 @@ const CompareCard = React.memo(({ location, item }) => {
             <div className='game-title'>{game?.title || 'titolo'}</div>
             <div className='game-category'>{game?.category || 'categoria'}</div>
 
-            {isBoardgame &&
+            {path === 'boardgames' &&
                 <>
                     <div className='game-players'><strong>Players:</strong> {game?.min_players} - {game?.max_players}</div>
                     <div className='game-playtime'><strong>Playtime:</strong> {game?.playtime || 'N/A'}min</div>
                 </>
             }
 
-            {isVideogame &&
+            {path === 'videogames' &&
                 <>
                     <div className='game-publisher'><strong>Publisher:</strong> {game?.publisher}</div>
                     <div className='game-studio'><strong>Game studio:</strong> {game?.game_studio}</div>

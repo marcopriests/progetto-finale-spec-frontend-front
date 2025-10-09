@@ -1,0 +1,507 @@
+[
+  {
+    "id": 1,
+    "createdAt": "2025-10-09T12:07:10.108Z",
+    "updatedAt": "2025-10-09T12:07:10.108Z",
+    "title": "7 wonders (second edition)",
+    "category": "card drafting",
+    "released_year": 2020,
+    "vote_average": 7.8,
+    "description": "The board game with more awards than any other game on the planet.\nWith over 30 international awards, and over a million copies sold throughout the world, rediscover 7 Wonders, the game which has won more awards than any other game in the world, in a whole new version. Lauded by both the public and critics, 7 Wonders has claimed its place as an unmissable reference point in modern board gaming. 7 Wonders is based on a simple and elegant mechanic (drafting) which allows up to 7 players to play with no dead time. Players make their choice and apply all of them at the same time. These choices are varied and their impact is real. Finally, the game is divided into 3 Ages which little by little increase the importance of these choices and thus the tension in the game. The global mechanics and the care given to the artwork are used to immerse the player in Antiquity and have contributed to the game’s success.\nA game plays out over 3 rounds, called Ages, during which you simultaneously play cards, one at a time, to develop your City.\n\nThese cards represent the various Buildings you can construct: resource producers, civilian, commercial, military, scientific structures, and guilds.\n\nAt the end of each Age, you go to war with your nearest neighbours. At the end of all 3 Ages, you tally up all of the victory points earned by your City, your wonder, your military prowess, and your treasury. The player with the highest score wins the game.",
+    "image": "https://cf.geekdo-images.com/Naw8y8J_s-8cvq1GoTON6w__itemrep@2x/img/1UZAht0YyLjr2_fNtKVna44Nt4g=/fit-in/492x600/filters:strip_icc()/pic7416519.jpg",
+    "link": "https://boardgamegeek.com/boardgame/316377/7-wonders-second-edition",
+    "owner": "marco",
+    "designer": [
+      "Antoine Bauza"
+    ],
+    "artist": [
+      "Miguel Coimbra"
+    ],
+    "min_players": 3,
+    "max_players": 7,
+    "playtime": 30,
+    "min_age": 10
+  },
+  {
+    "id": 2,
+    "createdAt": "2025-10-09T12:08:23.368Z",
+    "updatedAt": "2025-10-09T12:08:23.368Z",
+    "title": "ahoy",
+    "category": "area majority",
+    "released_year": 2022,
+    "vote_average": 7.3,
+    "description": "Ahoy is a lightly asymmetrical game where two to four players take the roles of swashbucklers and soldiers seeking Fame on the high seas.\n\nOne player controls the Bluefin Squadron, a company of sharks and their toothy friends, who patrol these waters and keep order with shot and sword. Another player controls the Mollusk Union, an alliance of undersea creatures and their comrades-in-arms, who fight to reclaim their ancestral home. In games with more people, some players control Smugglers, maverick captains who run blockades to smuggle luxuries and essentials, delivering them to those with the most need—or the most coin. Explore the seas. As you play, you’ll make a unique map full of treasure troves, dangerous wreckage, and mighty sea currents, using deluxe double-layer region tiles.\n\nFeaturing development from the same team that brought you Root and Oath, Ahoy offers deep, interactive gameplay in a fast-playing and easy-to-learn design with a colorful setting brought to life by Kyle Ferrin's gorgeous illustrations.",
+    "image": "https://cf.geekdo-images.com/yHPkYCQixecmdL9Sabj6kQ__itemrep@2x/img/RI0WEfxZReYwnYb6fh_zSDWZjDY=/fit-in/492x600/filters:strip_icc()/pic6946121.png",
+    "link": "https://boardgamegeek.com/boardgame/359402/ahoy",
+    "owner": "marco",
+    "designer": [
+      "Greg Loring-Albright"
+    ],
+    "artist": [
+      "Kyle Ferrin"
+    ],
+    "min_players": 2,
+    "max_players": 4,
+    "playtime": 75,
+    "min_age": 14
+  },
+  {
+    "id": 3,
+    "createdAt": "2025-10-09T12:09:40.427Z",
+    "updatedAt": "2025-10-09T12:09:40.427Z",
+    "title": "ark nova",
+    "category": "animals",
+    "released_year": 2021,
+    "vote_average": 8.5,
+    "description": "In Ark Nova, you will plan and design a modern, scientifically managed zoo. With the ultimate goal of owning the most successful zoological establishment, you will build enclosures, accommodate animals, and support conservation projects all over the world. Specialists and unique buildings will help you in achieving this goal.\n\nEach player has a set of five action cards to manage their gameplay, and the power of an action is determined by the slot the card currently occupies. The cards in question are:\n\n    CARDS: Allows you to gain new zoo cards (animals, sponsors, and conservation project cards).\n    BUILD: Allows you to build standard or special enclosures, kiosks, and pavilions.\n    ANIMALS: Allows you to accommodate animals in your zoo.\n    ASSOCIATION: Allows your association workers to carry out different tasks.\n    SPONSORS: Allows you to play a sponsor card in your zoo or to raise money.\n\n255 cards featuring animals, specialists, special enclosures, and conservation projects, each with a special ability, are at the heart of Ark Nova. Use them to increase the appeal and scientific reputation of your zoo and collect conservation points.",
+    "image": "https://cf.geekdo-images.com/SoU8p28Sk1s8MSvoM4N8pQ__itemrep@2x/img/Pr8zSaMINlALYjR0agud0_EFESs=/fit-in/492x600/filters:strip_icc()/pic6293412.jpg",
+    "link": "https://boardgamegeek.com/boardgame/342942/ark-nova",
+    "owner": "marco",
+    "designer": [
+      "Mathias Wigge"
+    ],
+    "artist": [
+      "Steffen Bieker",
+      "Loïc Billiau",
+      "Dennis Lohausen",
+      "Christof Tisch"
+    ],
+    "min_players": 1,
+    "max_players": 4,
+    "playtime": 150,
+    "min_age": 14
+  },
+  {
+    "id": 4,
+    "createdAt": "2025-10-09T12:11:16.495Z",
+    "updatedAt": "2025-10-09T12:11:16.495Z",
+    "title": "bang!",
+    "category": "hand management",
+    "released_year": 202,
+    "vote_average": 6.5,
+    "description": "\"The Outlaws hunt the Sheriff. The Sheriff hunts the Outlaws. The Renegade plots secretly, ready to take one side or the other. Bullets fly. Who among the gunmen is a Deputy, ready to sacrifice himself for the Sheriff? And who is a merciless Outlaw, willing to kill him? If you want to find out, just draw (your cards)!\" (From back of box)\n\nThe card game BANG! recreates an old-fashioned spaghetti western shoot-out, with each player randomly receiving a Character card to determine special abilities, and a secret Role card to determine their goal.\nFour different Roles are available, each with a unique victory condition:\n\n    Sheriff - Kill all Outlaws and the Renegade\n    Deputy - Protect the Sheriff and kill any Outlaws\n    Outlaw - Kill the Sheriff\n    Renegade - Be the last person standing\n\nA player's Role is kept secret, except for the Sheriff. Character cards are placed face up on table, and also track strength (hand limit) in addition to special ability.\n\nThere are 22 different types of cards in the draw deck. Most common are the BANG! cards, which let you shoot at another player, assuming the target is within \"range\" of your current gun. The target player can play a \"MISSED!\" card to dodge the shot. Other cards can provide temporary boosts while in play (for example, different guns to improve your firing range) and special one-time effects to help you or hinder your opponents (such as Beer to restore health, or Barrels to hide behind during a shootout). A horse is useful for keeping your distance from unruly neighbors, while the Winchester can hit a target at range 5. The Gatling is a deadly exception where range doesn't matter: it can only be used once, but targets all other players at the table!\n\nInformation on the cards is displayed using language-independent symbols, and 7 summary/reference cards are included.",
+    "image": "https://cf.geekdo-images.com/_04xA-d-rfygm0c49HE4vA__itemrep@2x/img/y8voqbS1PSXTwdM-hIhQYDNACls=/fit-in/492x600/filters:strip_icc()/pic1170986.jpg",
+    "link": "https://boardgamegeek.com/boardgame/3955/bang",
+    "owner": "marco",
+    "designer": [
+      "Emiliano Sciarra"
+    ],
+    "artist": [
+      "Stefano de Fazi",
+      "Alessandro Pierangelini"
+    ],
+    "min_players": 4,
+    "max_players": 7,
+    "playtime": 40,
+    "min_age": 8
+  },
+  {
+    "id": 5,
+    "createdAt": "2025-10-09T12:13:39.188Z",
+    "updatedAt": "2025-10-09T12:13:39.188Z",
+    "title": "barrakuda",
+    "category": "bluffing",
+    "released_year": 2022,
+    "vote_average": 6,
+    "description": "Welcome to Cartagena, Colombia! The colonial houses in this historical town are a testimony to its colorful past. You, on the other hand, are more interested in old shipwrecks — more specifically, sunken Spanish galleons filled with gold. Time to embark on an old-fashioned underwater treasure hunt. What you didn't anticipate is that several of you have discovered the legends of these buried riches. To make matters worse, a barracuda is prowling through the shipwrecks.\n\nThe challenge in Barrakuda is to be the first player to have eight gold pieces in their vault, but before you can lock away gold in your vault, you need to find it on shipwrecks or steal it from others.\n\nTo set up the game, lay out shipwreck cards numbered 1-6 in some orthogonal arrangement, and give each player movement cards numbered 1-5, along with a barracuda card. On a turn, each player chooses a card from their hand, then they reveal them simultaneously. If you played a movement card, move your pawn to that shipwreck card; if you're the only player there (and the barracuda isn't), take both the special action and general action listed on the card. If more than one player is on the same shipwreck card, then whoever has the fewest movement cards in front of them has the initiative and can either take the special action or take all the gold from one player's bag; after this, all players take this card's general action.\n\nIf you're the only one who played a barracuda card, roll the distance die, then move it up to that many spaces in the direction of your choice. If a barracuda is on the same space as a player, they have to drop their gold on that shipwreck space; others can pick up that gold starting next turn. If none or more than one player play barracuda, roll the direction and distance card to determine where it goes.\n\nActions on cards let you pick up gold, move gold from your bag to your vault, protect you from the barracuda, take back movement cards, move the barracuda, and so on.",
+    "image": "https://cf.geekdo-images.com/Yx8bQYgrG33w4q-Bcb3MQA__itemrep@2x/img/MCip1xP-GEPftK3drUncAD5jtq4=/fit-in/492x600/filters:strip_icc()/pic6906886.jpg",
+    "link": "https://boardgamegeek.com/boardgame/362874/barrakuda",
+    "owner": "marco",
+    "designer": [
+      "Isaac Pante"
+    ],
+    "artist": [
+      "Ajša Zdravković"
+    ],
+    "min_players": 2,
+    "max_players": 4,
+    "playtime": 20,
+    "min_age": 8
+  },
+  {
+    "id": 6,
+    "createdAt": "2025-10-09T12:15:28.512Z",
+    "updatedAt": "2025-10-09T12:15:28.512Z",
+    "title": "evolversi male",
+    "category": "deck building",
+    "released_year": 2024,
+    "vote_average": 6.6,
+    "description": "You who are looking at this vibrant piece of meat.\nI'm talking to you, sad badly evolved animal, are you ready for a frenetic race? Present yourself in the presence of evolution before your opponents, possibly with more tokens than them, purchase your evolutionary adaptations to survive catastrophic extinction events and use your deadly powers to stop other animals.\n\nEvolve the only way you know how: badly!",
+    "image": "https://cf.geekdo-images.com/9MkqsvemLpZElwjZPbYodA__itemrep@2x/img/xokIgNqMTuaTZYFT-tV7ihQ90dw=/fit-in/492x600/filters:strip_icc()/pic8159039.jpg",
+    "link": "https://boardgamegeek.com/boardgame/419202/barbascura-x-evolversi-male",
+    "owner": "marco",
+    "designer": [
+      "Alessandro Cuneo"
+    ],
+    "artist": [
+      "Enrico Macchiavello"
+    ],
+    "min_players": 2,
+    "max_players": 5,
+    "playtime": 75,
+    "min_age": 16
+  },
+  {
+    "id": 7,
+    "createdAt": "2025-10-09T12:16:47.991Z",
+    "updatedAt": "2025-10-09T12:16:47.991Z",
+    "title": "catan",
+    "category": "economic",
+    "released_year": 1995,
+    "vote_average": 7.1,
+    "description": "In CATAN (formerly The Settlers of Catan), players try to be the dominant force on the island of Catan by building settlements, cities and roads. On each turn dice are rolled to determine which resources the island produces. Players build structures by 'spending' resources (sheep, wheat, wood, brick and ore) which are represented by the relevant resource cards; each land type, with the exception of the unproductive desert, produces a specific resource: hills produce brick, forests produce wood, mountains produce ore, fields produce wheat, and pastures produce sheep.\n\nSet-up includes randomly placing large hexagonal tiles (each depicting one of the five resource-producing terrain types--or the desert) in a honeycomb shape and surrounding them with water tiles, some of which contain ports of exchange. A number disk, the value of which will correspond to the roll of two 6-sided dice, are placed on each terrain tile. Each player is given two settlements (think: houses) and roads (sticks) which are placed on intersections and borders of the terrain tiles. Players collect a hand of resource cards based on which terrain tiles their last-placed settlement is adjacent to. A robber pawn is placed on the desert tile.\n\nA turn consists of rolling the dice, collecting resource cards based on this dice roll and the position of settlements (or upgraded cities—think: hotels), turning in resource cards (if possible and desired) for improvements, trading cards at a port, possibly playing a development card, or trading resource cards with other players. If the dice roll is a 7, the active player moves the robber to a new terrain tile and steals a resource card from another player who has a settlement adjacent to that tile.\n\nPoints are accumulated by building settlements and cities, having the longest road or the largest army (from some of the development cards), and gathering certain development cards that simply award victory points. When a player has gathered 10 points (some of which may be held in secret), s/he announces this and claims the win.",
+    "image": "https://cf.geekdo-images.com/PyUol9QxBnZQCJqZI6bmSA__itemrep@2x/img/xwJYATcMP1fxojJSNmzSWZvSzn4=/fit-in/492x600/filters:strip_icc()/pic8632666.png",
+    "link": "https://boardgamegeek.com/boardgame/13/catan",
+    "owner": "marco",
+    "designer": [
+      "Klaus Teuber"
+    ],
+    "artist": [
+      "Volkan Baga",
+      "Tanja Donner",
+      "Pete Fenlon",
+      "Jason Hawkins"
+    ],
+    "min_players": 3,
+    "max_players": 4,
+    "playtime": 120,
+    "min_age": 10
+  },
+  {
+    "id": 8,
+    "createdAt": "2025-10-09T12:17:55.639Z",
+    "updatedAt": "2025-10-09T12:17:55.639Z",
+    "title": "citadels",
+    "category": "bluffing",
+    "released_year": 2016,
+    "vote_average": 7.2,
+    "description": "In Citadels, players take on new roles each round to represent characters they hire in order to help them acquire gold and erect buildings. The game ends at the close of a round in which a player erects their seventh building. Players then tally their points, and the player with the highest score wins.\n\nPlayers start the game with a number of building cards in their hand; buildings come in five colors, with the purple buildings typically having a special ability and the other colored buildings providing a benefit when you play particular characters. At the start of each round, the player who was king the previous round discards one of the eight character cards at random, chooses one, then passes the cards to the next player, etc. until each player has secretly chosen a character. Each character has a special ability, and the usefulness of any character depends upon your situation, and that of your opponents. The characters then carry out their actions in numerical order: the assassin eliminating another character for the round, the thief stealing all gold from another character, the wizard swapping building cards with another player, the warlord optionally destroys a building in play, and so on.\n\nOn a turn, a player earns two or more gold (or draws two building cards then discards one), then optionally constructs one building (or up to three if playing the architect this round). Buildings cost gold equal to the number of symbols on them, and each building is worth a certain number of points. In addition to points from buildings, at the end of the game a player scores bonus points for having eight buildings or buildings of all five colors.\n\nThe 2016 edition of Citadels includes twenty-seven characters — eight from the original Citadels, ten from the Dark City expansion, and nine new ones — along with thirty unique building districts, and the rulebook includes six preset lists of characters and districts beyond the starter list, each crafted to encourage a different style and intensity of gameplay.",
+    "image": "https://cf.geekdo-images.com/sHd0jkZZLDgixHjAXtn7kA__itemrep/img/AWV2LUDla1LJMWg0IZC-2gRxI6I=/fit-in/246x300/filters:strip_icc()/pic3119514.jpg",
+    "link": "https://boardgamegeek.com/boardgame/205398/citadels",
+    "owner": "marco",
+    "designer": [
+      "Bruno Faidutti"
+    ],
+    "artist": [
+      "Andrew Bosley",
+      "Jeff Brown (II)",
+      "James Combridge",
+      "Amit Dutta"
+    ],
+    "min_players": 2,
+    "max_players": 8,
+    "playtime": 60,
+    "min_age": 10
+  },
+  {
+    "id": 9,
+    "createdAt": "2025-10-09T12:18:54.378Z",
+    "updatedAt": "2025-10-09T12:18:54.378Z",
+    "title": "clue conspiracy",
+    "category": "deduction",
+    "released_year": 2023,
+    "vote_average": 6.4,
+    "description": "As a guest at the luxe Black Adder Resort, you discover that someone (maybe even you!) wants to murder its manager, Mr. Coral. A series of deadly traps have been planted all over the resort — and someone is armed! Now you must solve the ultimate mystery: Who can you trust?\n\nIn Clue Conspiracy, players play as Clue characters and take on secret roles on opposing teams: Friends vs. the Conspiracy. The Friends work to save Mr. Coral and uncover the Who, Where, and What of the Conspiracy's secret Plot. The Conspiracy tries to secretly sabotage the Friends and carry out Mr. Coral's murder at a specific location and with a specific weapon. Both teams will also find clues to share — or not! Which side will succeed?\n\nThe Conspiracy wins by pulling off the murder plot at a specific location or by secretly sabotaging the Friends and setting off traps. The Friends win by disarming all the traps, or if that fails, solving the Who, Where, and What of the secret plot.",
+    "image": "https://cf.geekdo-images.com/pFKCD2-51GYbKThBqDeuBw__itemrep@2x/img/anywi7mqm2MNXOrFBkBrMT7kSbI=/fit-in/492x600/filters:strip_icc()/pic7569222.jpg",
+    "link": "https://boardgamegeek.com/boardgame/391824/clue-conspiracy",
+    "owner": "marco",
+    "designer": [
+      "Tommy Maranges"
+    ],
+    "artist": [
+      "Henning Ludvigsen"
+    ],
+    "min_players": 4,
+    "max_players": 10,
+    "playtime": 45,
+    "min_age": 14
+  },
+  {
+    "id": 10,
+    "createdAt": "2025-10-09T12:19:50.913Z",
+    "updatedAt": "2025-10-09T12:19:50.913Z",
+    "title": "codex naturalis",
+    "category": "hand management",
+    "released_year": 2021,
+    "vote_average": 7.2,
+    "description": "In CODEX Naturalis, you must continue the work of the illuminating monk Tybor Kwelein, assembling the pages of a manuscript that lists the living species in primary forests. Can you put the pages together in the best order possible? And are you prepared to sacrifice a species to develop your manuscript?\n\nIn the game, each player starts with a single card on the table, a card that shows some combination of the four possible resources in the middle of the card, in the corners of the card, or both. Players also have two resource cards and one gold card in hand, while two of each type of card are visible on the table.\n\nOn a turn, you place a card from your hand overlapping the corners of one or more cards you already have in play. Your starting card has four overlappable corners, while resource and gold cards have only three.\n\n    Resource cards have no cost to be played, and they often depict resource symbols in their corners.\n    Gold cards deliver points when played, but they often have a resource requirement, e.g., three fungi or two plant/one animal/one insect, and you must have those resources visible in your manuscript at the time you play the gold card. You score points from this card immediately, with some cards having a fixed value and others a variable one depending on how many of a certain symbol are showing or how many corners you covered this turn.\n\nIf you wish, you can play a card from your hand face down; such a card has four corners and one resource, but provides no points. After you play, draw a face-up card or the top card of either deck to refill your hand.\n\nWhen a player reaches 20 points, you complete the round, and each player takes one additional turn. Players then score points based on how well they matched two public objective cards and one secret objective card, after which the player with the most points wins.",
+    "image": "https://cf.geekdo-images.com/0I7U0tz-RgpIFWWco5FKLA__itemrep@2x/img/AEWZ6H6im7Xva_BQWMm_1H4kIe8=/fit-in/492x600/filters:strip_icc()/pic5612161.png",
+    "link": "https://boardgamegeek.com/boardgame/314503/codex-naturalis",
+    "owner": "marco",
+    "designer": [
+      "Thomas Dupont"
+    ],
+    "artist": [
+      "Maxime Morin"
+    ],
+    "min_players": 1,
+    "max_players": 4,
+    "playtime": 30,
+    "min_age": 7
+  },
+  {
+    "id": 11,
+    "createdAt": "2025-10-09T12:20:57.181Z",
+    "updatedAt": "2025-10-09T12:20:57.181Z",
+    "title": "cyclades: legendary edition",
+    "category": "city building",
+    "released_year": 2024,
+    "vote_average": 8.2,
+    "description": "In the Cyclades archipelago, off the shores of a divided Greece, players develop their cities and compete for supremacy under the watchful gaze of the gods.\n\nIn Cyclades: Legendary Edition, designers have reworked the Cyclades base game and its many expansions to make gameplay more dynamic and fluid.\n\nThe game features a strategic bidding system that defines the actions available to each player on their turn. You must balance your finances to optimize the various actions provided by the different gods, with each player gaining the support of only one god each turn. The game features a shorter and more dynamic bidding phase than the original Cyclades thanks to a new exponential bidding scale. Six gods are available instead of the five, increasing the variety of actions available.\n\nPlayers now use landscape tiles to assemble the modular game board during set-up, allowing for ever-changing maps and game strategies. New creatures and heroes are available in the base game, offering new strategic opportunities to build metropolises and gain decisive advantages on the battlefield. Your goal is to be the first to control three metropolises.",
+    "image": "https://cf.geekdo-images.com/g4bC44H7rdrl0KLW7LGV5A__itemrep@2x/img/ExPNjI1jLsMqtAxmnFFEi4ftYes=/fit-in/492x600/filters:strip_icc()/pic7566828.png",
+    "link": "https://boardgamegeek.com/boardgame/380619/cyclades-legendary-edition",
+    "owner": "marco",
+    "designer": [
+      "Bruno Cathala",
+      "Ludovic Maublanc"
+    ],
+    "artist": [
+      "Miguel Coimbra"
+    ],
+    "min_players": 2,
+    "max_players": 6,
+    "playtime": 90,
+    "min_age": 13
+  },
+  {
+    "id": 12,
+    "createdAt": "2025-10-09T12:22:00.929Z",
+    "updatedAt": "2025-10-09T12:22:00.929Z",
+    "title": "deep regrets",
+    "category": "cooperative",
+    "released_year": 2025,
+    "vote_average": 7.4,
+    "description": "Deep Regrets is an unfortunate fishing game about pulling progressively more horrifying things out of the ocean. Decide what to eat, what to sell, what to mount, and how many regrets you're willing to carry, as you push yourself too far and spiral towards a conclusion in this strategic horror fishing game.\n\nYou'll roll bespoke tackle dice at the start of each turn to determine your strength for that round and then decide whether you'll stay at sea or return to port to sell fish, buy provisions, and recharge your energy.\n\nSurvey the sizes of shadows on the backs of 9 different fish shoals at three depths, determining what you think you can afford to catch and if you want to risk it for a potentially better reward. Flip fish, spend dice, add them to your collection - but beware of reveal and catch abilities that can have various effects on the game! As your eyes spy more and more horrifying things, you'll collect Regrets cards - which drive up your madness but also give you access to more dice and increase the value of weirder fish. It's a risk/reward scenario as you balance your madness, knowing that at the end of the game the player with the highest value of Regrets will have to discard their most valuable mounted fish.\n\nManage you resources, make strategic decisions, leverage madness to your benefit and suppress your Regrets as you try to catch the most valuable haul of weirder and weirder fish in this weird week at sea.\n\nSOLO MODE:\nIn the solo mode (which you can also co-op), you'll act as an ichthyologist on a mission to catch and catalog every fish in the sea. Over a campaign of dozens of games, you'll try to reel in every last fish and document their attributes on provided catalog sheet. At the end of each game, you'll have to discard an equal value of fish to the regrets you've collected and may have to let some fish go to return to another day. At the end of the campaign, you'll have a catalog of all fish names, depths, values and difficulties that can be used by players in the multiplayer game to help identify what they might fish up!",
+    "image": "https://cf.geekdo-images.com/WUvpRzsNSZgq1gyvjiQcWw__itemrep@2x/img/QR0Qt7F8_nz0DokogydNkGQTLzE=/fit-in/492x600/filters:strip_icc()/pic8156363.jpg",
+    "link": "https://boardgamegeek.com/boardgame/397931/deep-regrets",
+    "owner": "marco",
+    "designer": [
+      "Judson Cowan"
+    ],
+    "artist": [
+      "Judson Cowan"
+    ],
+    "min_players": 1,
+    "max_players": 5,
+    "playtime": 150,
+    "min_age": 14
+  },
+  {
+    "id": 13,
+    "createdAt": "2025-10-09T12:23:01.695Z",
+    "updatedAt": "2025-10-09T12:23:01.695Z",
+    "title": "dogs with jobs",
+    "category": "hand management",
+    "released_year": 2025,
+    "vote_average": 8.8,
+    "description": "Embark on a thrilling adventure in Dogs With Jobs! You’ve just been hired by your city to recruit a team of working canines and answer the call of those in need. It’s your first day on the job and your goal is to outperform other recruiters for the greatest amount of reward points possible!\n\nSome jobs will call for grit, others for clever tactics. But each recruiter will face the challenge of organizing the most efficient team and utilizing each dog’s unique skills. With just 8 short hours in your day, every decision is crucial and unanswered jobs could cost you the win!\n\nWill you emerge as the top team?\n\nDogs With Jobs is easy to learn and quick to set up, bolsters high replay-ability, and is engaging for all skill levels.",
+    "image": "https://cf.geekdo-images.com/odQTAMenzzaiIvZxZk7EYw__itemrep@2x/img/z2Ncb2R1UIlb_WGBNitGhqujoRM=/fit-in/492x600/filters:strip_icc()/pic8966440.jpg",
+    "link": "https://boardgamegeek.com/boardgame/422685/dogs-with-jobs",
+    "owner": "marco",
+    "designer": [
+      "John Gordon"
+    ],
+    "artist": [
+      "Jonathan Wesslund"
+    ],
+    "min_players": 2,
+    "max_players": 5,
+    "playtime": 30,
+    "min_age": 7
+  },
+  {
+    "id": 14,
+    "createdAt": "2025-10-09T12:24:11.169Z",
+    "updatedAt": "2025-10-09T12:24:11.169Z",
+    "title": "happy little dinosaur",
+    "category": "hand management",
+    "released_year": 2021,
+    "vote_average": 6.2,
+    "description": "Lately, it feels like we’re all just dinosaurs trying to avoid the falling meteors. In this game, you’ll try to dodge all of life’s little disasters. You might fall into a pit of hot lava or get ghosted by your dino date, but the dino who survives it all wins the game!\n\nIn Happy Little Dinosaurs, the first person to reach 50 points, or be the last Dinosaur standing, wins the game! During each round, you’ll flip a Disaster card featuring a Natural, Predatory, or Emotional disaster. Each player will play a Point card in hopes of collecting points and avoiding the disaster.\n\nYou will work to avoid all of life’s little disasters and laugh as they happen to your friends. If you collect 3 Disaster cards of the same type OR 3 different types of Disaster cards, you will be out of the game. Point cards feature weapons, trinkets, and good luck charms that you use to collect points and avoid disasters. Each card has a point value between 0 and 9 that you will use when scoring a round. You can use Instant cards at different points during the game to tip the odds in your favor or save your Dinosaur from certain death.\n\nPlayer boards include your Dinosaur's traits, an Escape Route you use to track your score, and a Disaster Area where you will collect Disaster cards. You'll move your Dinosaur meeple along the Escape Route on your player board to track your score. Will you successfully dodge the disasters or get eaten by a prehistoric whale? Only the cards can decide.",
+    "image": "https://cf.geekdo-images.com/aajSbzY8vkZG_-aJdKJh_g__itemrep@2x/img/j7TAKoVJqPSnQnVQeq0JtziHqQ4=/fit-in/492x600/filters:strip_icc()/pic8286790.png",
+    "link": "https://boardgamegeek.com/boardgame/325414/happy-little-dinosaurs",
+    "owner": "marco",
+    "designer": [
+      "Ramy Badie"
+    ],
+    "artist": [
+      "Ramy Badie"
+    ],
+    "min_players": 2,
+    "max_players": 4,
+    "playtime": 60,
+    "min_age": 8
+  },
+  {
+    "id": 15,
+    "createdAt": "2025-10-09T12:25:05.079Z",
+    "updatedAt": "2025-10-09T12:25:05.079Z",
+    "title": "harmonies",
+    "category": "chaining",
+    "released_year": 2024,
+    "vote_average": 8,
+    "description": "In Harmonies, build landscapes by placing colored tokens and create habitats for your animals. To earn the most points and win the game, incorporate the habitats in your landscapes wisely and have as many animals as you can settle there.\n\nStarting with the first player and proceeding clockwise, each player will choose a set of 3 terrain tokens from the central area to place on their personal board. They may optionally choose an Animal card from the 5 displayed and/or place an Animal cube from their Animal card(s) on any completed patterns on their board that match their personal Animal cards. There is a 4-card limit per player. After their turn, refill with a new set of 3 tokens and a new Animal card if needed.\n\nPlacement of the terrain tokens will depend on the personal Animal card goals, and scoring rules for the various terrain types (mountain, field, forest, etc). For example, mountain tiles score based on how high they are (1 tile scores 1, while 3 tiles stacked score 7), but the mountain scores zero if it is not adjacent to at least one other mountain. If all the cubes on a given Animal card have been placed, the card is set aside and a new card can be drawn. The cards are scored at game end based on the highest number that isn't covered by a cube.\n\nThe games ends when there are no tokens left in the bag to refill the central area, or at least one players has 2 or fewer empty spaces on their player board. Play continues until all players have had an equal turn that round. The player with the highest points is the winner.\n\nOptionally, you can use Nature's Spirit cards for richer gameplay. During setup, each player chooses 1 of 2 spirit cards and places a Spirit cube on the card. They follow the same placement rules as Animal cards, but tend to have an ongoing effect once completed. The spirit card does count towards the 4-card hand limit.",
+    "image": "https://cf.geekdo-images.com/A_XP2_VN3ugyqPhezowB_w__itemrep@2x/img/eRw-ai-NVnY8tRnRrM-IGbHgW4M=/fit-in/492x600/filters:strip_icc()/pic8026369.png",
+    "link": "https://boardgamegeek.com/boardgame/414317/harmonies",
+    "owner": "marco",
+    "designer": [
+      "Johan Benvenuto"
+    ],
+    "artist": [
+      "Maëva da Silva"
+    ],
+    "min_players": 1,
+    "max_players": 4,
+    "playtime": 45,
+    "min_age": 10
+  },
+  {
+    "id": 16,
+    "createdAt": "2025-10-09T12:26:22.393Z",
+    "updatedAt": "2025-10-09T12:26:22.393Z",
+    "title": "harry potter: hogwarts battle",
+    "category": "cooperative game",
+    "released_year": 2016,
+    "vote_average": 7.3,
+    "description": "The forces of evil are threatening to overrun Hogwarts castle in Harry Potter: Hogwarts Battle, a cooperative deck-building game, and it's up to four students to ensure the safety of the school by defeating villains and consolidating their defenses. In the game, players take on the role of a Hogwarts student: Harry, Ron, Hermione or Neville, each with their own personal deck of cards that's used to acquire resources.\n\nBy gaining influence, players add more cards to their deck in the form of iconic characters, spells, and magical items. Other cards allow them to regain health or fight against villains, keeping them from gaining power. The villains set back players with their attacks and Dark Arts. Only by working together will players be able to defeat all of the villains, securing the castle from the forces of evil.",
+    "image": "https://cf.geekdo-images.com/ugYBvYxyWyx8_BqaFKZlGw__itemrep@2x/img/1gCKckONRcabHk7uAqj6_fVpsJI=/fit-in/492x600/filters:strip_icc()/pic3518231.jpg",
+    "link": "https://boardgamegeek.com/boardgame/199042/harry-potter-hogwarts-battle",
+    "owner": "marco",
+    "designer": [
+      "Sean Fletcher",
+      "Forrest-Pruzan Creative",
+      "Kami Mandell",
+      "Andrew Wolf"
+    ],
+    "artist": [
+      "Joe Van Wetering"
+    ],
+    "min_players": 2,
+    "max_players": 4,
+    "playtime": 60,
+    "min_age": 11
+  },
+  {
+    "id": 17,
+    "createdAt": "2025-10-09T12:27:36.788Z",
+    "updatedAt": "2025-10-09T12:27:36.788Z",
+    "title": "heat: pedal to the metal",
+    "category": "catch the leader",
+    "released_year": 2022,
+    "vote_average": 8,
+    "description": "Based on simple and intuitive hand management, Heat: Pedal to the Metal puts players in the driver's seat of intense car races, jockeying for position to cross the finish line first, while managing their car's speed if they don't want to overheat. Selecting the right upgrades for their car will help them hug the curves and keep their engine cool enough to maintain top speeds. Ultimately, their driving skills will be the key to victory!\n\nDrivers can compete in a single race or use the \"Championship System\" to play a whole season in one game night, customizing their car before each race to claim the top spot of the podium. They have to be careful as the weather, road conditions, and events will change every race to spice up their championship. Players can also enjoy a solo mode with the Legends Module or add automated drivers as additional opponents in multiplayer games.",
+    "image": "https://cf.geekdo-images.com/-vOrd4bOspibyohYExLqWg__itemrep@2x/img/S1Vm6B8-yVTbjq6pOf091HNeKMg=/fit-in/492x600/filters:strip_icc()/pic6940449.png",
+    "link": "https://boardgamegeek.com/boardgame/366013/heat-pedal-to-the-metal",
+    "owner": "marco",
+    "designer": [
+      "Asger Harding Granerud",
+      "Daniel Skjold Pedersen"
+    ],
+    "artist": [
+      "Vincent Dutrait"
+    ],
+    "min_players": 1,
+    "max_players": 6,
+    "playtime": 60,
+    "min_age": 10
+  },
+  {
+    "id": 18,
+    "createdAt": "2025-10-09T12:28:32.962Z",
+    "updatedAt": "2025-10-09T12:28:32.962Z",
+    "title": "hidden leaders",
+    "category": "bluffing",
+    "released_year": 2022,
+    "vote_average": 6.7,
+    "description": "The island of Oshra is in turmoil. Following the death of the Emperor, the conflict between the Hill Tribes and the Imperial Army escalated. While the Water People try to maintain balance between the old rivals, the Undead aim to escalate the war. All hope rests on the six children of the Emperor: Who of them will claim the throne?\n\nIn Hidden Leaders, you take the role of one of six secret leaders, each of them is allied with two of the four factions/colors. By playing heroes into your tableau, either openly or secretly, you influence the outcome of the conflict.\nAt the end of the game, one of the four factions will win:\n\n    Red leading > Red victory\n    Green leading > Green victory\n    Tie between Red & Green > Blue victory\n    Red & Green in War Zone > Black victory\n\nEach player who is aligned with the winning faction can claim the victory. However, they must have more heroes of this color than any competitor.\n\nHidden Leaders is a quick, light strategy card game with direct player interaction. It combines tableau building and deduction elements with its unique winning mechanism. This is a game of great tension with no-down time, that’s fast to learn. Its distinctive artwork and character names will make you smile.",
+    "image": "https://cf.geekdo-images.com/vDu0Zb4ooGEOF29ZaRQ3EQ__itemrep@2x/img/_o1zxSLtTblEt9r1IOeECyM-i4I=/fit-in/492x600/filters:strip_icc()/pic5845169.jpg",
+    "link": "https://boardgamegeek.com/boardgame/320718/hidden-leaders",
+    "owner": "marco",
+    "designer": [
+      "Andreas Müller",
+      "Markus Müller (II)",
+      "Raphael Stocker"
+    ],
+    "artist": [
+      "Satoshi Matsuura"
+    ],
+    "min_players": 2,
+    "max_players": 6,
+    "playtime": 40,
+    "min_age": 10
+  },
+  {
+    "id": 19,
+    "createdAt": "2025-10-09T12:29:29.873Z",
+    "updatedAt": "2025-10-09T12:29:29.873Z",
+    "title": "hive",
+    "category": "grid movement",
+    "released_year": 2001,
+    "vote_average": 7.3,
+    "description": "Hive is a strategic game for two players that is not restricted by a board and can be played anywhere on any flat surface. Hive is made up of twenty two pieces, eleven black and eleven white, resembling a variety of creatures each with a unique way of moving.\n\nWith no setting up to do, the game begins when the first piece is placed down. As the subsequent pieces are placed this forms a pattern that becomes the playing surface (the pieces themselves become the board). Unlike other such games, the pieces are never eliminated and not all have to be played. The object of the game is to totally surround your opponent's queen, while at the same time trying to block your opponent from doing likewise to your queen. The player to totally surround his opponent's queen wins the game.",
+    "image": "https://cf.geekdo-images.com/fQe85tsBZoH6ibPnm1k1UA__itemrep@2x/img/jFKFWTUOBXK1P-C527R3yWpIF7Y=/fit-in/492x600/filters:strip_icc()/pic791151.jpg",
+    "link": "https://boardgamegeek.com/boardgame/2655/hive",
+    "owner": "marco",
+    "designer": [
+      "John Yianni"
+    ],
+    "artist": [
+      "John Yianni"
+    ],
+    "min_players": 2,
+    "max_players": 2,
+    "playtime": 20,
+    "min_age": 9
+  },
+  {
+    "id": 20,
+    "createdAt": "2025-10-09T12:30:39.280Z",
+    "updatedAt": "2025-10-09T12:30:39.280Z",
+    "title": "the lord of the rings: duel for the middle-earth",
+    "category": "card game",
+    "released_year": 2024,
+    "vote_average": 8.4,
+    "description": "A dark rumour rises from Mordor. The Eye turns to Middle-earth. The hour has come. The Fellowship is reunited. The Heroes prepare for battle. Will you play as the Fellowship of the Ring to defend the free races and destroy the One Ring? Or will you play as Sauron and pursue Frodo and Sam while deploying your hordes to the gates of the enemy cities? The destiny of Middle-earth is in your hands!\n\nA game plays over 3 successive chapters that unfold similarly.\nOn your turn, strengthen your Skills, hoard your treasure, stretch your presence across Middle-earth, rally Races to your cause, or advance the Quest of the Ring.",
+    "image": "https://cf.geekdo-images.com/EybxJlUc9rz7F7HVFLqsdw__itemrep@2x/img/ZBaZuEF91caDnlhi2mmr48mwuZ4=/fit-in/492x600/filters:strip_icc()/pic8378939.jpg",
+    "link": "https://boardgamegeek.com/boardgame/421006/the-lord-of-the-rings-duel-for-middle-earth",
+    "owner": "marco",
+    "designer": [
+      "Antoine Bauza",
+      "Bruno Cathala"
+    ],
+    "artist": [
+      "Vincent Dutrait"
+    ],
+    "min_players": 2,
+    "max_players": 2,
+    "playtime": 30,
+    "min_age": 10
+  },
+  {
+    "id": 21,
+    "createdAt": "2025-10-09T12:32:03.427Z",
+    "updatedAt": "2025-10-09T12:32:03.427Z",
+    "title": "lost tuins of arnak",
+    "category": "worker placement",
+    "released_year": 2020,
+    "vote_average": 8.1,
+    "description": "On an uninhabited island in uncharted seas, explorers have found traces of a great civilization. Now you will lead an expedition to explore the island, find lost artifacts, and face fearsome guardians, all in a quest to learn the island's secrets.\n\nLost Ruins of Arnak combines deck-building and worker placement in a game of exploration, resource management, and discovery. In addition to traditional deck-builder effects, cards can also be used to place workers, and new worker actions become available as players explore the island. Some of these actions require resources instead of workers, so building a solid resource base will be essential. You are limited to only one action per turn, so make your choice carefully... what action will benefit you most now? And what can you afford to do later... assuming someone else doesn't take the action first!?\n\nDecks are small, and randomness in the game is heavily mitigated by the wealth of tactical decisions offered on the game board. With a variety of worker actions, artifacts, and equipment cards, the set-up for each game will be unique, encouraging players to explore new strategies to meet the challenge.\n\nDiscover the Lost Ruins of Arnak!",
+    "image": "https://cf.geekdo-images.com/6GqH14TJJhza86BX5HCLEQ__itemrep@2x/img/hX4PzEbU71mE4VPlo3l-mLFC2W0=/fit-in/492x600/filters:strip_icc()/pic5674958.jpg",
+    "link": "https://boardgamegeek.com/boardgame/312484/lost-ruins-of-arnak",
+    "owner": "marco",
+    "designer": [
+      "Elwen",
+      "Mín"
+    ],
+    "artist": [
+      "Ondřej Hrdina",
+      "Jiří Kůs",
+      "Filip Murmak",
+      "Jakub Politzer"
+    ],
+    "min_players": 1,
+    "max_players": 4,
+    "playtime": 120,
+    "min_age": 12
+  }
+]

@@ -3,9 +3,14 @@ import { NavLink } from 'react-router-dom';
 import { GlobalContext } from '../context/GlobalContext';
 
 const VideoGameCard = React.memo(({ vg }) => {
+    // recupero le funzioni dal context
+
     const { favoriteVideoGames, changeFavoritesVG, compare, setCompare } = useContext(GlobalContext);
+
+    // definisco uno stato in cui salverò il gioco
     const [game, setGame] = useState(null);
 
+    // effettuo un fetch per recuperare il gioco al montaggio del componente
     useEffect(() => {
         fetch(`http://localhost:3001/videogames/${vg.id}`)
             .then(response => response.json())
@@ -14,6 +19,7 @@ const VideoGameCard = React.memo(({ vg }) => {
             })
     }, []);
 
+    // definisco una funzione per aggiungere/rimuovere il gioco ai preferiti
     const toggleFavorite = () => {
         if (favoriteVideoGames.some(fav => fav.id === game.id)) {
             changeFavoritesVG(favoriteVideoGames.filter(fav => fav.id !== game.id));
@@ -22,6 +28,7 @@ const VideoGameCard = React.memo(({ vg }) => {
         }
     };
 
+    // definisco una funzione per aggiungere/rimuovere il gioco al comparatore
     const toggleCompare = () => {
         if (compare.some(comp => comp.id === game.id)) {
             setCompare(compare.filter(comp => comp.id !== game.id));

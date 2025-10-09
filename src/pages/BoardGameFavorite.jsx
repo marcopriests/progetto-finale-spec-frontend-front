@@ -1,11 +1,13 @@
-import React, { useState, useCallback, useMemo, useContext } from 'react'
+import React, { useState, useCallback, useMemo, useContext, useEffect } from 'react'
 import { GlobalContext } from '../context/GlobalContext';
 import BoardGameCard from '../components/BoardGameCard';
 import Comparator from '../components/Comparator';
 import debounce from '../functions/debounce';
+import { useLocation } from 'react-router-dom';
 
 const BoardGameFavorite = () => {
-    const { favoriteBoardGames, compare } = useContext(GlobalContext);
+    // recupero le funzioni dal context
+    const { favoriteBoardGames, compare, setCompare } = useContext(GlobalContext);
 
     // barra di filtraggio
     const [query, setQuery] = useState(''); // stato per la barra di ricerca
@@ -14,6 +16,12 @@ const BoardGameFavorite = () => {
     const [selectedCategory, setSelectedCategory] = useState(''); // stato per il filtro categoria
     const [sortBy, setSortBy] = useState('title a-z'); // 'title a-z', 'title z-a', 'category a-z', 'category z-a'
 
+    // resetto il comparatore
+    useEffect(() => {
+        setCompare([]);
+    }, []);
+
+    // utilizzo useMemo per calcolare l'array di elementi filtrati e ordinati
     const filteredAndSortedBoardGames = useMemo(() => {
         return [...favoriteBoardGames]
             .filter(game => game.title.toLowerCase().includes(query.toLowerCase()))
@@ -61,7 +69,7 @@ const BoardGameFavorite = () => {
                             <select value={selectedCategory} onChange={e => setSelectedCategory(e.target.value)}>
                                 <option value=''>All categories</option>
                                 {
-                                    favoriteBoardGames && favoriteBoardGames.filter((game, index, self) =>
+                                    filteredAndSortedBoardGames && filteredAndSortedBoardGames.filter((game, index, self) =>
                                         index === self.findIndex((g) => (
                                             g.category === game.category
                                         ))

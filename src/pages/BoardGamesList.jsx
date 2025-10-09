@@ -5,7 +5,8 @@ import Comparator from '../components/Comparator';
 import debounce from '../functions/debounce';
 
 const BoardGamesList = () => {
-    const { boardGames, compare, setCompare } = useContext(GlobalContext); // prendo i board games dal context
+    // recupero le funzioni dal context
+    const { boardGames, compare, setCompare } = useContext(GlobalContext);
 
     // resetto il comparatore
     useEffect(() => {

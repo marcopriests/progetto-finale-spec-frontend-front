@@ -7,12 +7,12 @@ import Homepage from "./pages/Homepage";
 import BoardGamesList from "./pages/BoardGamesList";
 import BoardGameDetail from "./pages/BoardGameDetail";
 import BoardGameFavorite from "./pages/BoardGameFavorite";
-import AddBoardGame from "./pages/AddBoardGame";
 
 import VideoGamesList from "./pages/VideoGamesList";
 import VideoGameDetail from "./pages/VideoGameDetail";
 import VideoGameFavorite from "./pages/VideoGameFavorite";
-import AddVideoGame from "./pages/AddVideoGame";
+
+import AddNewGame from "./pages/AddNewGame";
 
 function App() {
 
@@ -34,7 +34,7 @@ function App() {
             <Route path="/videogames/favorites" Component={VideoGameFavorite} />
 
 
-            <Route path="/add" Component={AddBoardGame} />
+            <Route path="/add" Component={AddNewGame} />
           </Route>
 
         </Routes>

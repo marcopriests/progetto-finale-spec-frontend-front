@@ -3,9 +3,13 @@ import { NavLink } from 'react-router-dom';
 import { GlobalContext } from '../context/GlobalContext';
 
 const BoardGameCard = React.memo(({ bg }) => {
+    // recupero le funzioni dal context
     const { favoriteBoardGames, changeFavoritesBG, compare, setCompare } = useContext(GlobalContext);
+
+    // definisco uno stato in cui salverò il gioco
     const [game, setGame] = useState(null);
 
+    // effettuo un fetch per recuperare il gioco al montaggio del componente
     useEffect(() => {
         fetch(`http://localhost:3001/boardgames/${bg.id}`)
             .then(response => response.json())
@@ -14,6 +18,7 @@ const BoardGameCard = React.memo(({ bg }) => {
             })
     }, []);
 
+    // definisco una funzione per aggiungere/rimuovere il gioco ai preferiti
     const toggleFavorite = () => {
         if (favoriteBoardGames.some(fav => fav.id === game.id)) {
             changeFavoritesBG(favoriteBoardGames.filter(fav => fav.id !== game.id));
@@ -22,6 +27,7 @@ const BoardGameCard = React.memo(({ bg }) => {
         }
     };
 
+    // definisco una funzione per aggiungere/rimuovere il gioco al comparatore
     const toggleCompare = () => {
         if (compare.some(comp => comp.id === game.id)) {
             setCompare(compare.filter(comp => comp.id !== game.id));

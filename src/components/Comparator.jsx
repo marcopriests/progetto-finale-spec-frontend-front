@@ -4,7 +4,10 @@ import CompareCard from './CompareCard'
 import { useLocation } from 'react-router-dom'
 
 const Comparator = () => {
+    // recupero le funzioni dal context
     const { compare, setCompare } = useContext(GlobalContext)
+
+    // inizializzo useLocation per capire in che pagina mi trovo
     const location = useLocation();
     return (
         <div className={`compare-bar ${compare.length > 0 ? 'compare-active' : ''}`}>

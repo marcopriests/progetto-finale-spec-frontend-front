@@ -2,18 +2,24 @@ import { useState, useRef } from 'react'
 import Modal from './Modal'
 
 const EditBoardGameModal = ({ show, onClose, boardgame, onSave }) => {
+    // definisco uno stato in cui salvare il gioco
     const [editedBoardGame, setEditedBoardGame] = useState(boardgame);
+
+    // definisco un riferimento per il form
     const editFormRef = useRef();
 
+    // definisco una funzione per modificare il gioco
     const changeEditedBoardGame = (key, event) => {
         setEditedBoardGame(prev => ({ ...prev, [key]: event.target.value }));
     }
 
     const handleSubmit = e => {
         e.preventDefault();
+        // eseguo la funzione handleUpdate che passo come prop onSave per effettuare la chiamata in put
         onSave(editedBoardGame);
     };
 
+    // destrutturo le proprietà del gioco
     const { title, category, released_year, designer, artist, vote_average, description, min_players, max_players, playtime, min_age, image, link, owner } = editedBoardGame;
     return (
         <Modal

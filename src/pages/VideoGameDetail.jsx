@@ -5,12 +5,20 @@ import EditVideoGameModal from '../components/EditVideoGameModal';
 import { GlobalContext } from '../context/GlobalContext';
 
 const VideoGameDetail = () => {
+    // importo le funzioni dal context
     const { favoriteVideoGames, changeFavoritesVG, updateVideoGame, removeVideoGame } = useContext(GlobalContext);
 
+    // dichiaro uno stato in cui salverò il gioco
     const [game, setGame] = useState(null);
+
+    // dichiaro gli stati per gestire le modali di edit e delete
     const [showEditModal, setShowEditModal] = useState(false);
     const [showDeleteModal, setShowDeleteModal] = useState(false);
+
+    // recupero l'id del gioco per la chiamata fetch
     const id = useParams().id;
+
+    // inizializzo useNavigate
     const navigate = useNavigate();
 
     const fetchGame = () => {
@@ -21,14 +29,21 @@ const VideoGameDetail = () => {
             })
     }
 
+    // effettuo la funzione fetch al montaggio della pagina
     useEffect(() => {
         fetchGame();
     }, [])
 
+    // funzione per la modifica del gioco
     const handleUpdate = async updatedVideoGame => {
         try {
+            // eseguo la funzione che modifica il gioco
             await updateVideoGame(updatedVideoGame);
+
+            // eseguo un nuovo fetch per mostrare le modifiche
             fetchGame()
+
+            // chiudo la modale
             setShowEditModal(false)
         } catch (error) {
             alert(error.message)
@@ -37,11 +52,17 @@ const VideoGameDetail = () => {
         }
     }
 
+    // funzione per l'eliminazione del gioco
     const handleDelete = async () => {
         try {
+            // eseguo la funzione per eliminare il gioco
             await removeVideoGame(game.id);
+
+            // rimuovo il gioco dai preferiti qualora ne facesse parte
             changeFavoritesVG(favoriteVideoGames.filter(fav => fav.id !== game.id));
             alert('Video Game deleted with success!');
+
+            // rimando l'utente alla lista dei giochi
             navigate('/videogames');
         } catch (error) {
             console.error(error);
@@ -62,6 +83,7 @@ const VideoGameDetail = () => {
                                             <span className="detail-year">
                                                 ({game.released_year})
                                             </span>
+                                            {/* bottoni per modali */}
                                             <button onClick={() => setShowEditModal(true)}><i className='fa-solid fa-edit'></i></button>
                                             <button onClick={() => setShowDeleteModal(true)}><i className='fa-solid fa-trash'></i></button>
                                         </div>
@@ -83,6 +105,7 @@ const VideoGameDetail = () => {
                         </div>
                     </div>
 
+                    {/* modifica gioco */}
                     <EditVideoGameModal
                         videogame={game}
                         show={showEditModal}
@@ -91,6 +114,7 @@ const VideoGameDetail = () => {
 
                     />
 
+                    {/* elimina gioco */}
                     <Modal
                         title="Confirm delete"
                         content={<p>Are you sure you want to delete this game?</p>}

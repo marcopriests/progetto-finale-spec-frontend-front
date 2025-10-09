@@ -1,15 +1,18 @@
-import React, { useState, useContext, useMemo, useRef } from 'react'
+import React, { useState, useContext, useMemo, useRef } from 'react';
 import { GlobalContext } from '../context/GlobalContext';
 
-const AddBoardGame = () => {
+const AddNewGame = () => {
+    // stato per identificare che tipologia di gioco voglio aggiungere
     const [selectedType, setSelectedType] = useState('')
+
+    // recupero le funzioni per aggiungere i giochi dal context
     const { addBoardGame, addVideoGame } = useContext(GlobalContext);
 
     // definisco due stati booleani che cambiano solo al variare di selectedType per definire se voglio aggiungere un boardgame oppure un videogame
     const isBoardgame = useMemo(() => selectedType === 'boardgame', [selectedType]);
     const isVideogame = useMemo(() => selectedType === 'videogame', [selectedType]);
 
-    // campi comuni
+    // definisco i campi comuni
     const [game, setGame] = useState('');
     const categoryRef = useRef();
     const yearRef = useRef();
@@ -19,7 +22,7 @@ const AddBoardGame = () => {
     const linkRef = useRef();
     const ownerRef = useRef();
 
-    // campi boardgame
+    // definisco i campi boardgame
     const designerRef = useRef();
     const artistRef = useRef();
     const minPlayersRef = useRef();
@@ -27,7 +30,7 @@ const AddBoardGame = () => {
     const playtimeRef = useRef();
     const minAgeRef = useRef();
 
-    // campi video game    
+    // definisco i campi video game    
     const publisherRef = useRef();
     const gameStudioRef = useRef();
 
@@ -45,6 +48,7 @@ const AddBoardGame = () => {
         if (gameError)
             return;
 
+        // trasformo i campi designer e artist in array
         const designer = isBoardgame && designerRef.current.value.trim().split(', ');
         const artist = isBoardgame && artistRef.current.value.trim().split(', ');
 
@@ -95,10 +99,58 @@ const AddBoardGame = () => {
         try {
             // aggiungo il newGame al db a seconda se selectedType è uguale a boardgame oppure videogame
             if (isBoardgame) {
+                // effettuo il controllo per i campi vuoti
+                if (
+                    categoryRef.current.value === '' ||
+                    descriptionRef.current.value === '' ||
+                    imageRef.current.value === '' ||
+                    linkRef.current.value === '' ||
+                    ownerRef.current.value === '' ||
+                    designer.length === 0 ||
+                    artist.length === 0
+                ) {
+                    throw Error('Compile all fields before continue.');
+                }
+
+                // effettuo il controllo sui campi numerici
+                if (
+                    isNaN(parseInt(yearRef.current.value)) ||
+                    isNaN(parseFloat(voteRef.current.value)) ||
+                    isNaN(parseInt(minPlayersRef.current.value)) ||
+                    isNaN(parseInt(maxPlayersRef.current.value)) ||
+                    isNaN(parseInt(playtimeRef.current.value)) ||
+                    isNaN(parseInt(minAgeRef.current.value))
+                ) {
+                    throw Error('Invalid characters in numeric fields.')
+                }
+
+                // invio la richiesta per aggiungere il gioco da tavolo
                 await addBoardGame(newGame);
             }
 
             if (isVideogame) {
+                // effettuo il controllo per i campi vuoti
+                if (
+                    categoryRef.current.value === '' ||
+                    descriptionRef.current.value === '' ||
+                    imageRef.current.value === '' ||
+                    linkRef.current.value === '' ||
+                    ownerRef.current.value === '' ||
+                    publisherRef.current.value === '' ||
+                    gameStudioRef.current.value === ''
+                ) {
+                    throw Error('Compile all fields before continue.');
+                }
+
+                // effettuo il controllo sui campi numerici
+                if (
+                    isNaN(parseInt(yearRef.current.value)) ||
+                    isNaN(parseFloat(voteRef.current.value))
+                ) {
+                    throw Error('Invalid characters in numeric fields.')
+                }
+
+                // invio la richiesta per aggiungere il videogioco
                 await addVideoGame(newGame);
             }
 
@@ -113,6 +165,7 @@ const AddBoardGame = () => {
             imageRef.current.value = '';
             linkRef.current.value = '';
             ownerRef.current.value = '';
+
             if (isBoardgame) {
                 designerRef.current.value = '';
                 artistRef.current.value = '';
@@ -136,6 +189,8 @@ const AddBoardGame = () => {
         <>
             <div className="container">
                 <h1 className='form-title'>Add New Game</h1>
+
+                {/* select per definire che tipologia di gioco si vuole aggiungere */}
                 <label>
                     Select Game Type:
                     <select className='form-field type-select' value={selectedType} onChange={e => setSelectedType(e.target.value)}>
@@ -321,4 +376,4 @@ const AddBoardGame = () => {
     )
 }
 
-export default AddBoardGame
+export default AddNewGame

@@ -5,12 +5,20 @@ import EditBoardGameModal from '../components/EditBoardGameModal';
 import { GlobalContext } from '../context/GlobalContext';
 
 const BoardGameDetail = () => {
+    // importo le funzioni dal context
     const { favoriteBoardGames, changeFavoritesBG, updateBoardGame, removeBoardGame } = useContext(GlobalContext);
 
+    // dichiaro uno stato in cui salverò il gioco
     const [game, setGame] = useState(null);
+
+    // dichiaro gli stati per gestire le modali di edit e delete
     const [showEditModal, setShowEditModal] = useState(false);
     const [showDeleteModal, setShowDeleteModal] = useState(false);
+
+    // recupero l'id del gioco per la chiamata fetch
     const id = useParams().id;
+
+    // inizializzo useNavigate
     const navigate = useNavigate();
 
     const fetchGame = () => {
@@ -21,28 +29,40 @@ const BoardGameDetail = () => {
             })
     }
 
+    // effettuo la funzione fetch al montaggio della pagina
     useEffect(() => {
         fetchGame();
     }, [])
 
+    // funzione per la modifica del gioco
     const handleUpdate = async updatedBoardGame => {
         try {
+            // eseguo la funzione che modifica il gioco
             await updateBoardGame(updatedBoardGame)
+
+            // eseguo un nuovo fetch per mostrare le modifiche
             fetchGame()
+
+            // chiudo la modale
             setShowEditModal(false)
         } catch (error) {
             alert(error.message)
         }
     }
 
+    // funzione per l'eliminazione del gioco
     const handleDelete = async () => {
         try {
+            // eseguo la funzione per eliminare il gioco
             await removeBoardGame(game.id);
+
+            // rimuovo il gioco dai preferiti qualora ne facesse parte
             changeFavoritesBG(favoriteBoardGames.filter(fav => fav.id !== game.id));
             alert('Board Game deleted with success!');
+
+            // rimando l'utente alla lista dei giochi
             navigate('/boardgames');
         } catch (error) {
-            console.error(error);
             alert(error.message);
         }
     };
@@ -60,6 +80,7 @@ const BoardGameDetail = () => {
                                             <span className="detail-year">
                                                 ({game.released_year})
                                             </span>
+                                            {/* bottoni per modali */}
                                             <button onClick={() => setShowEditModal(true)}><i className='fa-solid fa-edit'></i></button>
                                             <button onClick={() => setShowDeleteModal(true)}><i className='fa-solid fa-trash'></i></button>
                                         </div>
@@ -87,6 +108,7 @@ const BoardGameDetail = () => {
                         </div>
                     </div>
 
+                    {/* modifica gioco */}
                     <EditBoardGameModal
                         boardgame={game}
                         show={showEditModal}
@@ -95,6 +117,7 @@ const BoardGameDetail = () => {
 
                     />
 
+                    {/* elimina gioco */}
                     <Modal
                         title="Confirm delete"
                         content={<p>Are you sure you want to delete this game?</p>}

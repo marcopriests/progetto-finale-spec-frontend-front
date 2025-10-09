@@ -4,8 +4,10 @@ import BoardGameCard from '../components/BoardGameCard';
 import VideoGameCard from '../components/VideoGameCard'
 
 const Homepage = () => {
-    const { boardGames, videoGames } = useContext(GlobalContext); // prendo i board games dal context
+    // recupero le funzioni dal context
+    const { boardGames, videoGames } = useContext(GlobalContext);
 
+    // definisco un array di 10 giochi da tavolo randomici
     const bgArray = boardGames.reduce((acc, curr) => {
         if (acc.length < 12) {
             if (Math.random() * 1 < 0.5) {
@@ -15,6 +17,7 @@ const Homepage = () => {
         return acc
     }, []);
 
+    // definisco un array di 10 videogiochi randomici
     const vgArray = videoGames.reduce((acc, curr) => {
         if (acc.length < 12) {
             if (Math.random() * 1 < 0.5) {
@@ -31,6 +34,7 @@ const Homepage = () => {
                 </div>
             </div>
             <div className="container">
+                {/* giochi da tavolo */}
                 <h2 className='homepage-title'>Board Games</h2>
                 <div className="cards-container">
                     {bgArray.map(game => {
@@ -38,6 +42,7 @@ const Homepage = () => {
                     })}
                 </div>
 
+                {/* videogiochi */}
                 <h2 className='homepage-title'>Video Games</h2>
                 <div className="cards-container">
                     {vgArray.map(game => {

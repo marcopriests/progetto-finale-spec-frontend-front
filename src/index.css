@@ -190,6 +190,10 @@
     color: white;
 }
 
+.favorite-icon:hover {
+    color: #ff7700;
+}
+
 .favorite-icon .fa-solid {
     color: #ff7700;
 }

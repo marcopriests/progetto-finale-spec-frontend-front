@@ -2,11 +2,16 @@ import { useState, useRef } from 'react'
 import Modal from './Modal'
 
 const EditVideoGameModal = ({ show, onClose, videogame, onSave }) => {
+    // definisco uno stato in cui salvare il gioco
     const [editedVideoGame, setEditedVideoGame] = useState(videogame);
+
+    // definisco un riferimento per il form
     const editFormRef = useRef();
 
+    // definisco una funzione per modificare il gioco
     const changeEditedVideoGame = (key, event) => {
         setEditedVideoGame(prev => {
+            // trasformo i campi numerici in numeri
             if (key === 'released_year') {
                 return { ...prev, [key]: parseInt(event.target.value) }
             }
@@ -21,6 +26,7 @@ const EditVideoGameModal = ({ show, onClose, videogame, onSave }) => {
 
     const handleSubmit = e => {
         e.preventDefault();
+        // eseguo la funzione handleUpdate che passo come prop onSave per effettuare la chiamata in put
         onSave(editedVideoGame);
     };
 
